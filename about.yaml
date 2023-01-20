@@ -1,0 +1,6 @@
+name: attributes_of_biosamples
+author: Mark Andrew Miller <mam@lbl.gov>
+description: Attributes of Environmental Biosamples
+source_schema_path: src/attributes_of_biosamples/schema/attributes_of_biosamples.yaml
+google_sheet_id: 1sXIRRw6XrDbFOZcM1ZiJPdcuSoRno2N1f_RJBK7ikXo
+google_sheet_tabs: slotdefs classdefs slot_assignments
