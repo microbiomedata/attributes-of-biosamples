@@ -1,10 +1,11 @@
 type Biosample
   {
+    id: String
     depth: String
   }
 
 type BiosampleCollection
   {
-    biosamples: Biosample
+    biosamples: [Biosample]
   }
 

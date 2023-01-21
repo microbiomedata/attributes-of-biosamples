@@ -229,12 +229,27 @@
       "definition_uri": "https://example.org/TEMP/biosamples",
       "from_schema": "TEMP",
       "slot_uri": "https://example.org/TEMP/biosamples",
+      "multivalued": true,
       "owner": "BiosampleCollection",
       "domain_of": [
         "BiosampleCollection"
       ],
       "range": "Biosample",
       "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "id",
+      "definition_uri": "https://example.org/TEMP/id",
+      "description": "value that points exclusively to one instances of a class",
+      "from_schema": "TEMP",
+      "slot_uri": "https://example.org/TEMP/id",
+      "owner": "Biosample",
+      "domain_of": [
+        "Biosample"
+      ],
+      "range": "string",
       "@type": "SlotDefinition"
     }
   ],
@@ -245,6 +260,7 @@
       "description": "something you can collect from the environment",
       "from_schema": "TEMP",
       "slots": [
+        "id",
         "depth"
       ],
       "slot_usage": {},
@@ -268,7 +284,7 @@
   "source_file": "attributes_of_biosamples.yaml",
   "source_file_date": "2023-01-20T18:50:17",
   "source_file_size": 671,
-  "generation_date": "2023-01-20T19:12:18",
+  "generation_date": "2023-01-20T20:09:58",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/attributes_of_biosamples.context.jsonld",

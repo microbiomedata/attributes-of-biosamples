@@ -22,7 +22,7 @@ linkml:topValue a owl:DatatypeProperty ;
     dcterms:license "MIT" ;
     dcterms:title "attributes-of-biosamples" ;
     rdfs:seeAlso "https://microbiomedata.github.io/attributes-of-biosamples" ;
-    linkml:generation_date "2023-01-20T19:12:21" ;
+    linkml:generation_date "2023-01-20T20:10:01" ;
     linkml:metamodel_version "1.7.0" ;
     linkml:source_file "attributes_of_biosamples.yaml" ;
     linkml:source_file_date "2023-01-20T18:50:17" ;
@@ -32,8 +32,7 @@ linkml:topValue a owl:DatatypeProperty ;
         linkml:ClassDefinition ;
     rdfs:label "BiosampleCollection" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass <https://example.org/TEMP/Biosample> ;
+            owl:allValuesFrom <https://example.org/TEMP/Biosample> ;
             owl:onProperty <https://example.org/TEMP/biosamples> ] ;
     skos:definition "a collection of Biosamples" .
 
@@ -48,11 +47,14 @@ linkml:topValue a owl:DatatypeProperty ;
     rdfs:range linkml:String ;
     skos:definition "how far down" .
 
+<https://example.org/TEMP/id> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "id" ;
+    rdfs:range linkml:String ;
+    skos:definition "value that points exclusively to one instances of a class" .
+
 linkml:ClassDefinition a owl:Class ;
     rdfs:label "class_definition" .
-
-linkml:SlotDefinition a owl:Class ;
-    rdfs:label "slot_definition" .
 
 <https://example.org/TEMP/Biosample> a owl:Class,
         linkml:ClassDefinition ;
@@ -60,7 +62,14 @@ linkml:SlotDefinition a owl:Class ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty <https://example.org/TEMP/depth> ] ;
+            owl:onProperty <https://example.org/TEMP/depth> ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://example.org/TEMP/id> ] ;
     skos:definition "something you can collect from the environment" .
+
+linkml:SlotDefinition a owl:Class ;
+    rdfs:label "slot_definition" .
 
 

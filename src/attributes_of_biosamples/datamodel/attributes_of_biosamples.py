@@ -1,5 +1,5 @@
 # Auto generated from attributes_of_biosamples.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-01-20T19:12:23
+# Generation date: 2023-01-20T20:10:03
 # Schema: attributes-of-biosamples
 #
 # id: https://w3id.org/microbiomedata/attributes-of-biosamples
@@ -59,9 +59,13 @@ class Biosample(YAMLRoot):
     class_name: ClassVar[str] = "Biosample"
     class_model_uri: ClassVar[URIRef] = ATTRIBUTES_OF_BIOSAMPLES.Biosample
 
+    id: Optional[str] = None
     depth: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
+
         if self.depth is not None and not isinstance(self.depth, str):
             self.depth = str(self.depth)
 
@@ -80,11 +84,12 @@ class BiosampleCollection(YAMLRoot):
     class_name: ClassVar[str] = "BiosampleCollection"
     class_model_uri: ClassVar[URIRef] = ATTRIBUTES_OF_BIOSAMPLES.BiosampleCollection
 
-    biosamples: Optional[Union[dict, Biosample]] = None
+    biosamples: Optional[Union[Union[dict, Biosample], List[Union[dict, Biosample]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.biosamples is not None and not isinstance(self.biosamples, Biosample):
-            self.biosamples = Biosample(**as_dict(self.biosamples))
+        if not isinstance(self.biosamples, list):
+            self.biosamples = [self.biosamples] if self.biosamples is not None else []
+        self.biosamples = [v if isinstance(v, Biosample) else Biosample(**as_dict(v)) for v in self.biosamples]
 
         super().__post_init__(**kwargs)
 
@@ -100,4 +105,7 @@ slots.depth = Slot(uri=TEMP.depth, name="depth", curie=TEMP.curie('depth'),
                    model_uri=ATTRIBUTES_OF_BIOSAMPLES.depth, domain=None, range=Optional[str])
 
 slots.biosamples = Slot(uri=TEMP.biosamples, name="biosamples", curie=TEMP.curie('biosamples'),
-                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.biosamples, domain=None, range=Optional[Union[dict, Biosample]])
+                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.biosamples, domain=None, range=Optional[Union[Union[dict, Biosample], List[Union[dict, Biosample]]]])
+
+slots.id = Slot(uri=TEMP.id, name="id", curie=TEMP.curie('id'),
+                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.id, domain=None, range=Optional[str])

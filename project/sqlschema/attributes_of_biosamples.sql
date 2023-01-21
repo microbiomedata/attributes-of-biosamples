@@ -1,8 +1,9 @@
 
 
 CREATE TABLE "Biosample" (
+	id TEXT, 
 	depth TEXT, 
-	PRIMARY KEY (depth)
+	PRIMARY KEY (id, depth)
 );
 
 CREATE TABLE "BiosampleCollection" (

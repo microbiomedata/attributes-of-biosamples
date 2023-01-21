@@ -7,6 +7,10 @@
                 "depth": {
                     "description": "how far down",
                     "type": "string"
+                },
+                "id": {
+                    "description": "value that points exclusively to one instances of a class",
+                    "type": "string"
                 }
             },
             "title": "Biosample",
@@ -17,7 +21,10 @@
             "description": "a collection of Biosamples",
             "properties": {
                 "biosamples": {
-                    "$ref": "#/$defs/Biosample"
+                    "items": {
+                        "$ref": "#/$defs/Biosample"
+                    },
+                    "type": "array"
                 }
             },
             "title": "BiosampleCollection",

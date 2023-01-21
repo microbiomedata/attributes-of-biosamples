@@ -1,10 +1,11 @@
 // something you can collect from the environment
 message Biosample
  {
+  string id = 0
   string depth = 0
  }
 // a collection of Biosamples
 message BiosampleCollection
  {
-  biosample biosamples = 0
+ repeated  biosample biosamples = 0
  }

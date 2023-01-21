@@ -36,13 +36,15 @@ linkml:Objectidentifier IRI
 linkml:Nodeidentifier NONLITERAL
 
 TEMP:Biosample CLOSED {
-    (  $TEMP:Biosample_tes TEMP:depth @linkml:String ? ;
+    (  $TEMP:Biosample_tes (  TEMP:id @linkml:String ? ;
+          TEMP:depth @linkml:String ?
+       ) ;
        rdf:type [ TEMP:Biosample ] ?
     )
 }
 
 TEMP:BiosampleCollection CLOSED {
-    (  $TEMP:BiosampleCollection_tes TEMP:biosamples @TEMP:Biosample ? ;
+    (  $TEMP:BiosampleCollection_tes TEMP:biosamples @TEMP:Biosample * ;
        rdf:type [ TEMP:BiosampleCollection ] ?
     )
 }

@@ -19,13 +19,20 @@ slots:
   biosamples:
     name: biosamples
     from_schema: TEMP
+    multivalued: true
     range: Biosample
+    inlined_as_list: true
+  id:
+    name: id
+    description: value that points exclusively to one instances of a class
+    from_schema: TEMP
 classes:
   Biosample:
     name: Biosample
     description: something you can collect from the environment
     from_schema: TEMP
     slots:
+    - id
     - depth
   BiosampleCollection:
     name: BiosampleCollection

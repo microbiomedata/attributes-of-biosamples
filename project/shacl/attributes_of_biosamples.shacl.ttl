@@ -7,7 +7,6 @@
     sh:description "a collection of Biosamples" ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:class <https://example.org/TEMP/Biosample> ;
-            sh:maxCount 1 ;
             sh:nodeKind sh:BlankNode ;
             sh:order 0 ;
             sh:path <https://example.org/TEMP/biosamples> ] ;
@@ -17,9 +16,13 @@
     sh:closed true ;
     sh:description "something you can collect from the environment" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "how far down" ;
+    sh:property [ sh:description "value that points exclusively to one instances of a class" ;
             sh:maxCount 1 ;
             sh:order 0 ;
+            sh:path <https://example.org/TEMP/id> ],
+        [ sh:description "how far down" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
             sh:path <https://example.org/TEMP/depth> ] ;
     sh:targetClass <https://example.org/TEMP/Biosample> .
 
