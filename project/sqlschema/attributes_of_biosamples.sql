@@ -9,15 +9,14 @@ CREATE TABLE "Biosample" (
 	PRIMARY KEY (id)
 );
 
+CREATE TABLE "Collection" (
+	biosamples TEXT, 
+	meetings TEXT, 
+	PRIMARY KEY (biosamples, meetings)
+);
+
 CREATE TABLE "Meeting" (
 	id TEXT NOT NULL, 
 	meeting_info VARCHAR(5), 
 	PRIMARY KEY (id)
-);
-
-CREATE TABLE "Collection" (
-	biosamples TEXT, 
-	meetings TEXT, 
-	PRIMARY KEY (biosamples, meetings), 
-	FOREIGN KEY(meetings) REFERENCES "Meeting" (id)
 );

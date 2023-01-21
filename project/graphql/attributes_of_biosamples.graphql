@@ -10,7 +10,7 @@ type Biosample
 type Collection
   {
     biosamples: [Biosample]
-    meetings: Meeting
+    meetings: [Meeting]
   }
 
 type Meeting

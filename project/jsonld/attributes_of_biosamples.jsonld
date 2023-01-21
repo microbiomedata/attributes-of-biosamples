@@ -448,11 +448,14 @@
       "definition_uri": "http://example.com/meetings",
       "from_schema": "http://example.com/attributes_of_biosamples",
       "slot_uri": "http://example.com/meetings",
+      "multivalued": true,
       "owner": "Collection",
       "domain_of": [
         "Collection"
       ],
       "range": "Meeting",
+      "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     }
   ],
@@ -506,7 +509,7 @@
   "source_file": "attributes_of_biosamples.yaml",
   "source_file_date": "2023-01-20T22:50:07",
   "source_file_size": 676,
-  "generation_date": "2023-01-20T23:41:51",
+  "generation_date": "2023-01-20T23:44:53",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/attributes_of_biosamples.context.jsonld",

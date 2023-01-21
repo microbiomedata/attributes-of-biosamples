@@ -49,7 +49,7 @@ suggestion_only:Biosample CLOSED {
 
 suggestion_only:Collection CLOSED {
     (  $suggestion_only:Collection_tes (  suggestion_only:biosamples @suggestion_only:Biosample * ;
-          suggestion_only:meetings @suggestion_only:Meeting ?
+          suggestion_only:meetings @suggestion_only:Meeting *
        ) ;
        rdf:type [ suggestion_only:Collection ] ?
     )

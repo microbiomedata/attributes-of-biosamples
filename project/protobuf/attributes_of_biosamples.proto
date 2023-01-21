@@ -11,7 +11,7 @@ message Biosample
 message Collection
  {
  repeated  biosample biosamples = 0
-  meeting meetings = 0
+ repeated  meeting meetings = 0
  }
 message Meeting
  {

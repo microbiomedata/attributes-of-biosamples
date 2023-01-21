@@ -52,7 +52,10 @@
                     "type": "array"
                 },
                 "meetings": {
-                    "type": "string"
+                    "items": {
+                        "$ref": "#/$defs/Meeting"
+                    },
+                    "type": "array"
                 }
             },
             "title": "Collection",

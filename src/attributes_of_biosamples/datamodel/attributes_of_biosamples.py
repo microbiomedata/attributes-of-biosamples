@@ -1,5 +1,5 @@
 # Auto generated from attributes_of_biosamples.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-01-20T23:41:57
+# Generation date: 2023-01-20T23:44:59
 # Schema: attributes-of-biosamples
 #
 # id: https://w3id.org/microbiomedata/attributes-of-biosamples
@@ -115,13 +115,12 @@ class Collection(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = ATTRIBUTES_OF_BIOSAMPLES.Collection
 
     biosamples: Optional[Union[Dict[Union[str, BiosampleId], Union[dict, Biosample]], List[Union[dict, Biosample]]]] = empty_dict()
-    meetings: Optional[Union[str, MeetingId]] = None
+    meetings: Optional[Union[Dict[Union[str, MeetingId], Union[dict, "Meeting"]], List[Union[dict, "Meeting"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         self._normalize_inlined_as_list(slot_name="biosamples", slot_type=Biosample, key_name="id", keyed=True)
 
-        if self.meetings is not None and not isinstance(self.meetings, MeetingId):
-            self.meetings = MeetingId(self.meetings)
+        self._normalize_inlined_as_list(slot_name="meetings", slot_type=Meeting, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -208,4 +207,4 @@ slots.meeting_info = Slot(uri=AOB.meeting_info, name="meeting_info", curie=AOB.c
                    model_uri=ATTRIBUTES_OF_BIOSAMPLES.meeting_info, domain=None, range=Optional[Union[str, "COMPASSPOINTS"]])
 
 slots.meetings = Slot(uri=AOB.meetings, name="meetings", curie=AOB.curie('meetings'),
-                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.meetings, domain=None, range=Optional[Union[str, MeetingId]])
+                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.meetings, domain=None, range=Optional[Union[Dict[Union[str, MeetingId], Union[dict, Meeting]], List[Union[dict, Meeting]]]])
