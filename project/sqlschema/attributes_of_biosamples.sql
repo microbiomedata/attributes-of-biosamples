@@ -1,9 +1,11 @@
 
 
 CREATE TABLE "Biosample" (
-	id TEXT, 
+	id TEXT NOT NULL, 
 	depth TEXT, 
-	PRIMARY KEY (id, depth)
+	intval INTEGER NOT NULL, 
+	sometimes_absent TEXT NOT NULL, 
+	PRIMARY KEY (id)
 );
 
 CREATE TABLE "BiosampleCollection" (

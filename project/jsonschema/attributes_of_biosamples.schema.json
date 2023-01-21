@@ -11,8 +11,19 @@
                 "id": {
                     "description": "value that points exclusively to one instances of a class",
                     "type": "string"
+                },
+                "intval": {
+                    "type": "integer"
+                },
+                "sometimes_absent": {
+                    "type": "string"
                 }
             },
+            "required": [
+                "id",
+                "intval",
+                "sometimes_absent"
+            ],
             "title": "Biosample",
             "type": "object"
         },

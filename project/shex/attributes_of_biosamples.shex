@@ -2,7 +2,7 @@ BASE <https://w3id.org/microbiomedata/attributes-of-biosamples/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX linkml: <https://w3id.org/linkml/>
-PREFIX TEMP: <https://example.org/TEMP/>
+PREFIX aob: <http://example.com/>
 
 
 linkml:String xsd:string
@@ -35,17 +35,18 @@ linkml:Objectidentifier IRI
 
 linkml:Nodeidentifier NONLITERAL
 
-TEMP:Biosample CLOSED {
-    (  $TEMP:Biosample_tes (  TEMP:id @linkml:String ? ;
-          TEMP:depth @linkml:String ?
+aob:Biosample CLOSED {
+    (  $aob:Biosample_tes (  aob:depth @linkml:String ? ;
+          aob:intval @linkml:Integer ;
+          aob:sometimes_absent @linkml:String
        ) ;
-       rdf:type [ TEMP:Biosample ] ?
+       rdf:type [ aob:Biosample ]
     )
 }
 
-TEMP:BiosampleCollection CLOSED {
-    (  $TEMP:BiosampleCollection_tes TEMP:biosamples @TEMP:Biosample * ;
-       rdf:type [ TEMP:BiosampleCollection ] ?
+aob:BiosampleCollection CLOSED {
+    (  $aob:BiosampleCollection_tes aob:biosamples @aob:Biosample * ;
+       rdf:type [ aob:BiosampleCollection ] ?
     )
 }
 

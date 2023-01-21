@@ -1,7 +1,9 @@
 type Biosample
   {
-    id: String
+    id: String!
     depth: String
+    intval: Integer!
+    sometimesAbsent: String!
   }
 
 type BiosampleCollection

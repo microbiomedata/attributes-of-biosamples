@@ -3,6 +3,7 @@ import os
 import glob
 import unittest
 
+from linkml_runtime.dumpers import yaml_dumper
 from linkml_runtime.loaders import yaml_loader
 from attributes_of_biosamples.datamodel import BiosampleCollection
 
@@ -19,4 +20,5 @@ class TestData(unittest.TestCase):
         """Date test."""
         for path in EXAMPLE_FILES:
             obj = yaml_loader.load(path, target_class=BiosampleCollection)
+            print(yaml_dumper.dumps(obj))
             assert obj

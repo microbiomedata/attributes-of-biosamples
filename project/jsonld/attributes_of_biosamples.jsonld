@@ -213,10 +213,53 @@
   "slots": [
     {
       "name": "depth",
-      "definition_uri": "https://example.org/TEMP/depth",
+      "definition_uri": "http://example.com/depth",
+      "conforms_to": "kindergarten stuff",
+      "annotations": [
+        {
+          "tag": "spanish",
+          "value": "profundidad",
+          "@type": "Annotation"
+        }
+      ],
       "description": "how far down",
-      "from_schema": "TEMP",
-      "slot_uri": "https://example.org/TEMP/depth",
+      "todos": [
+        "so pick one",
+        "then get some sleep"
+      ],
+      "notes": [
+        "call mom",
+        "vote"
+      ],
+      "comments": [
+        "could be a bare number",
+        "could be a string with a number and a unit",
+        "could be a tuple"
+      ],
+      "examples": [
+        {
+          "value": "high",
+          "@type": "Example"
+        },
+        {
+          "value": "low",
+          "@type": "Example"
+        },
+        {
+          "value": "2000",
+          "@type": "Example"
+        }
+      ],
+      "from_schema": "http://example.com/attributes_of_biosamples",
+      "see_also": [
+        "https://en.wikipedia.org/wiki/Three-dimensional_space",
+        "https://en.wikipedia.org/wiki/Depth_(video_game)"
+      ],
+      "mappings": [
+        "http://example.com/depth"
+      ],
+      "created_by": "ORCID:0000-0001-9076-6066",
+      "slot_uri": "http://example.com/depth",
       "owner": "Biosample",
       "domain_of": [
         "Biosample"
@@ -226,9 +269,9 @@
     },
     {
       "name": "biosamples",
-      "definition_uri": "https://example.org/TEMP/biosamples",
-      "from_schema": "TEMP",
-      "slot_uri": "https://example.org/TEMP/biosamples",
+      "definition_uri": "http://example.com/biosamples",
+      "from_schema": "http://example.com/attributes_of_biosamples",
+      "slot_uri": "http://example.com/biosamples",
       "multivalued": true,
       "owner": "BiosampleCollection",
       "domain_of": [
@@ -241,42 +284,106 @@
     },
     {
       "name": "id",
-      "definition_uri": "https://example.org/TEMP/id",
+      "definition_uri": "http://example.com/id",
       "description": "value that points exclusively to one instances of a class",
-      "from_schema": "TEMP",
-      "slot_uri": "https://example.org/TEMP/id",
+      "from_schema": "http://example.com/attributes_of_biosamples",
+      "aliases": [
+        "denoter",
+        "identifier"
+      ],
+      "is_a": "depth",
+      "modified_by": "ORCID:0000-0001-9076-6066",
+      "slot_uri": "http://example.com/id",
+      "identifier": true,
       "owner": "Biosample",
       "domain_of": [
         "Biosample"
       ],
       "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "depth_in_meters",
+      "definition_uri": "http://example.com/depth_in_meters",
+      "description": "bare float representation of depth in meters",
+      "title": "Depth in meters",
+      "from_schema": "http://example.com/attributes_of_biosamples",
+      "source": "aob:depth",
+      "status": "fhir_pub_status:publication-status-draft",
+      "slot_uri": "http://example.com/depth_in_meters",
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "intval",
+      "definition_uri": "http://example.com/intval",
+      "from_schema": "http://example.com/attributes_of_biosamples",
+      "slot_uri": "http://example.com/intval",
+      "owner": "Biosample",
+      "domain_of": [
+        "Biosample"
+      ],
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "intlist",
+      "definition_uri": "http://example.com/intlist",
+      "from_schema": "http://example.com/attributes_of_biosamples",
+      "slot_uri": "http://example.com/intlist",
+      "multivalued": true,
+      "range": "integer",
+      "recommended": true,
+      "minimum_cardinality": 2,
+      "maximum_cardinality": 8,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sometimes_absent",
+      "definition_uri": "http://example.com/sometimes_absent",
+      "from_schema": "http://example.com/attributes_of_biosamples",
+      "slot_uri": "http://example.com/sometimes_absent",
+      "ifabsent": "string(present)",
+      "owner": "Biosample",
+      "domain_of": [
+        "Biosample"
+      ],
+      "range": "string",
+      "required": true,
       "@type": "SlotDefinition"
     }
   ],
   "classes": [
     {
       "name": "Biosample",
-      "definition_uri": "https://example.org/TEMP/Biosample",
+      "id_prefixes": [
+        "suggestion_only"
+      ],
+      "definition_uri": "http://example.com/Biosample",
       "description": "something you can collect from the environment",
-      "from_schema": "TEMP",
+      "from_schema": "http://example.com/attributes_of_biosamples",
       "slots": [
         "id",
-        "depth"
+        "depth",
+        "intval",
+        "sometimes_absent"
       ],
       "slot_usage": {},
-      "class_uri": "https://example.org/TEMP/Biosample",
+      "class_uri": "http://example.com/Biosample",
       "@type": "ClassDefinition"
     },
     {
       "name": "BiosampleCollection",
-      "definition_uri": "https://example.org/TEMP/BiosampleCollection",
+      "definition_uri": "http://example.com/BiosampleCollection",
       "description": "a collection of Biosamples",
-      "from_schema": "TEMP",
+      "from_schema": "http://example.com/attributes_of_biosamples",
       "slots": [
         "biosamples"
       ],
       "slot_usage": {},
-      "class_uri": "https://example.org/TEMP/BiosampleCollection",
+      "class_uri": "http://example.com/BiosampleCollection",
       "@type": "ClassDefinition"
     }
   ],
@@ -284,7 +391,7 @@
   "source_file": "attributes_of_biosamples.yaml",
   "source_file_date": "2023-01-20T18:50:17",
   "source_file_size": 671,
-  "generation_date": "2023-01-20T20:09:58",
+  "generation_date": "2023-01-20T22:16:32",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/attributes_of_biosamples.context.jsonld",

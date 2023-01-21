@@ -1,42 +1,108 @@
-name: TEMP
-id: TEMP
+name: attributes_of_biosamples
+id: http://example.com/attributes_of_biosamples
 imports:
 - linkml:types
 prefixes:
+  ORCID:
+    prefix_prefix: ORCID
+    prefix_reference: https://orcid.org/
+  fhir_pub_status:
+    prefix_prefix: fhir_pub_status
+    prefix_reference: https://www.hl7.org/fhir/codesystem-publication-status.html#
+  aob:
+    prefix_prefix: aob
+    prefix_reference: http://example.com/
   linkml:
     prefix_prefix: linkml
     prefix_reference: https://w3id.org/linkml/
-  TEMP:
-    prefix_prefix: TEMP
-    prefix_reference: https://example.org/TEMP/
-default_prefix: TEMP
+default_prefix: aob
 default_range: string
 slots:
   depth:
     name: depth
+    conforms_to: kindergarten stuff
+    annotations:
+      spanish:
+        tag: spanish
+        value: profundidad
     description: how far down
-    from_schema: TEMP
+    todos:
+    - so pick one
+    - then get some sleep
+    notes:
+    - call mom
+    - vote
+    comments:
+    - could be a bare number
+    - could be a string with a number and a unit
+    - could be a tuple
+    examples:
+    - value: high
+    - value: low
+    - value: '2000'
+    from_schema: http://example.com/attributes_of_biosamples
+    see_also:
+    - https://en.wikipedia.org/wiki/Three-dimensional_space
+    - https://en.wikipedia.org/wiki/Depth_(video_game)
+    created_by: ORCID:0000-0001-9076-6066
+    slot_uri: aob:depth
   biosamples:
     name: biosamples
-    from_schema: TEMP
+    from_schema: http://example.com/attributes_of_biosamples
     multivalued: true
     range: Biosample
     inlined_as_list: true
   id:
     name: id
     description: value that points exclusively to one instances of a class
-    from_schema: TEMP
+    from_schema: http://example.com/attributes_of_biosamples
+    aliases:
+    - denoter
+    - identifier
+    is_a: depth
+    modified_by: ORCID:0000-0001-9076-6066
+    identifier: true
+  depth_in_meters:
+    name: depth_in_meters
+    description: bare float representation of depth in meters
+    title: Depth in meters
+    from_schema: http://example.com/attributes_of_biosamples
+    source: aob:depth
+    status: fhir_pub_status:publication-status-draft
+    range: float
+  intval:
+    name: intval
+    from_schema: http://example.com/attributes_of_biosamples
+    range: integer
+    required: true
+  intlist:
+    name: intlist
+    from_schema: http://example.com/attributes_of_biosamples
+    multivalued: true
+    range: integer
+    recommended: true
+    minimum_cardinality: '2'
+    maximum_cardinality: '8'
+  sometimes_absent:
+    name: sometimes_absent
+    from_schema: http://example.com/attributes_of_biosamples
+    ifabsent: string(present)
+    required: true
 classes:
   Biosample:
     name: Biosample
+    id_prefixes:
+    - suggestion_only
     description: something you can collect from the environment
-    from_schema: TEMP
+    from_schema: http://example.com/attributes_of_biosamples
     slots:
     - id
     - depth
+    - intval
+    - sometimes_absent
   BiosampleCollection:
     name: BiosampleCollection
     description: a collection of Biosamples
-    from_schema: TEMP
+    from_schema: http://example.com/attributes_of_biosamples
     slots:
     - biosamples

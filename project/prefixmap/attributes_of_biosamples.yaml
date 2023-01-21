@@ -1,15 +1,16 @@
 {
    "PATO": "http://purl.obolibrary.org/obo/PATO_",
-   "TEMP": "https://example.org/TEMP/",
+   "aob": "http://example.com/",
    "attributes_of_biosamples": "https://w3id.org/microbiomedata/attributes-of-biosamples/",
    "biolink": "https://w3id.org/biolink/",
    "example": "https://example.org/",
    "linkml": "https://w3id.org/linkml/",
    "schema": "http://schema.org/",
+   "suggestion_only": "http://example.org/UNKNOWN/suggestion_only/",
    "Biosample": {
-      "@id": "TEMP:Biosample"
+      "@id": "aob:Biosample"
    },
    "BiosampleCollection": {
-      "@id": "TEMP:BiosampleCollection"
+      "@id": "aob:BiosampleCollection"
    }
 }

@@ -1,5 +1,5 @@
 # Auto generated from attributes_of_biosamples.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-01-20T20:10:03
+# Generation date: 2023-01-20T22:16:40
 # Schema: attributes-of-biosamples
 #
 # id: https://w3id.org/microbiomedata/attributes-of-biosamples
@@ -22,7 +22,7 @@ from linkml_runtime.utils.formatutils import camelcase, underscore, sfx
 from linkml_runtime.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from linkml_runtime.utils.curienamespace import CurieNamespace
-from linkml_runtime.linkml_model.types import String
+from linkml_runtime.linkml_model.types import Float, Integer, String
 
 metamodel_version = "1.7.0"
 version = None
@@ -32,19 +32,21 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 PATO = CurieNamespace('PATO', 'http://purl.obolibrary.org/obo/PATO_')
-TEMP = CurieNamespace('TEMP', 'https://example.org/TEMP/')
+AOB = CurieNamespace('aob', 'http://example.com/')
 ATTRIBUTES_OF_BIOSAMPLES = CurieNamespace('attributes_of_biosamples', 'https://w3id.org/microbiomedata/attributes-of-biosamples/')
 BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/')
 EXAMPLE = CurieNamespace('example', 'https://example.org/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')
+SUGGESTION_ONLY = CurieNamespace('suggestion_only', 'http://example.org/UNKNOWN/suggestion_only/')
 DEFAULT_ = ATTRIBUTES_OF_BIOSAMPLES
 
 
 # Types
 
 # Class references
-
+class BiosampleId(extended_str):
+    pass
 
 
 @dataclass
@@ -54,17 +56,31 @@ class Biosample(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = TEMP.Biosample
-    class_class_curie: ClassVar[str] = "TEMP:Biosample"
+    class_class_uri: ClassVar[URIRef] = AOB.Biosample
+    class_class_curie: ClassVar[str] = "aob:Biosample"
     class_name: ClassVar[str] = "Biosample"
     class_model_uri: ClassVar[URIRef] = ATTRIBUTES_OF_BIOSAMPLES.Biosample
 
-    id: Optional[str] = None
+    id: Union[str, BiosampleId] = None
+    intval: int = None
+    sometimes_absent: str = "present"
     depth: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.id is not None and not isinstance(self.id, str):
-            self.id = str(self.id)
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, BiosampleId):
+            self.id = BiosampleId(self.id)
+
+        if self._is_empty(self.intval):
+            self.MissingRequiredField("intval")
+        if not isinstance(self.intval, int):
+            self.intval = int(self.intval)
+
+        if self._is_empty(self.sometimes_absent):
+            self.MissingRequiredField("sometimes_absent")
+        if not isinstance(self.sometimes_absent, str):
+            self.sometimes_absent = str(self.sometimes_absent)
 
         if self.depth is not None and not isinstance(self.depth, str):
             self.depth = str(self.depth)
@@ -79,17 +95,15 @@ class BiosampleCollection(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = TEMP.BiosampleCollection
-    class_class_curie: ClassVar[str] = "TEMP:BiosampleCollection"
+    class_class_uri: ClassVar[URIRef] = AOB.BiosampleCollection
+    class_class_curie: ClassVar[str] = "aob:BiosampleCollection"
     class_name: ClassVar[str] = "BiosampleCollection"
     class_model_uri: ClassVar[URIRef] = ATTRIBUTES_OF_BIOSAMPLES.BiosampleCollection
 
-    biosamples: Optional[Union[Union[dict, Biosample], List[Union[dict, Biosample]]]] = empty_list()
+    biosamples: Optional[Union[Dict[Union[str, BiosampleId], Union[dict, Biosample]], List[Union[dict, Biosample]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.biosamples, list):
-            self.biosamples = [self.biosamples] if self.biosamples is not None else []
-        self.biosamples = [v if isinstance(v, Biosample) else Biosample(**as_dict(v)) for v in self.biosamples]
+        self._normalize_inlined_as_list(slot_name="biosamples", slot_type=Biosample, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -101,11 +115,23 @@ class BiosampleCollection(YAMLRoot):
 class slots:
     pass
 
-slots.depth = Slot(uri=TEMP.depth, name="depth", curie=TEMP.curie('depth'),
+slots.depth = Slot(uri=AOB.depth, name="depth", curie=AOB.curie('depth'),
                    model_uri=ATTRIBUTES_OF_BIOSAMPLES.depth, domain=None, range=Optional[str])
 
-slots.biosamples = Slot(uri=TEMP.biosamples, name="biosamples", curie=TEMP.curie('biosamples'),
-                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.biosamples, domain=None, range=Optional[Union[Union[dict, Biosample], List[Union[dict, Biosample]]]])
+slots.biosamples = Slot(uri=AOB.biosamples, name="biosamples", curie=AOB.curie('biosamples'),
+                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.biosamples, domain=None, range=Optional[Union[Dict[Union[str, BiosampleId], Union[dict, Biosample]], List[Union[dict, Biosample]]]])
 
-slots.id = Slot(uri=TEMP.id, name="id", curie=TEMP.curie('id'),
-                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.id, domain=None, range=Optional[str])
+slots.id = Slot(uri=AOB.id, name="id", curie=AOB.curie('id'),
+                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.id, domain=None, range=URIRef)
+
+slots.depth_in_meters = Slot(uri=AOB.depth_in_meters, name="depth_in_meters", curie=AOB.curie('depth_in_meters'),
+                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.depth_in_meters, domain=None, range=Optional[float])
+
+slots.intval = Slot(uri=AOB.intval, name="intval", curie=AOB.curie('intval'),
+                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.intval, domain=None, range=int)
+
+slots.intlist = Slot(uri=AOB.intlist, name="intlist", curie=AOB.curie('intlist'),
+                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.intlist, domain=None, range=Optional[Union[int, List[int]]])
+
+slots.sometimes_absent = Slot(uri=AOB.sometimes_absent, name="sometimes_absent", curie=AOB.curie('sometimes_absent'),
+                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.sometimes_absent, domain=None, range=str)
