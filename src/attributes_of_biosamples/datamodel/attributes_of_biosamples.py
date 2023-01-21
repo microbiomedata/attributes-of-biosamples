@@ -1,5 +1,5 @@
 # Auto generated from attributes_of_biosamples.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-01-20T23:00:28
+# Generation date: 2023-01-20T23:20:39
 # Schema: attributes-of-biosamples
 #
 # id: https://w3id.org/microbiomedata/attributes-of-biosamples
@@ -126,7 +126,7 @@ class slots:
     pass
 
 slots.depth = Slot(uri=AOB.depth, name="depth", curie=AOB.curie('depth'),
-                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.depth, domain=None, range=Optional[str], mappings = [MIXS["0000018"]])
+                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.depth, domain=None, range=Optional[str])
 
 slots.biosamples = Slot(uri=AOB.biosamples, name="biosamples", curie=AOB.curie('biosamples'),
                    model_uri=ATTRIBUTES_OF_BIOSAMPLES.biosamples, domain=None, range=Optional[Union[Dict[Union[str, BiosampleId], Union[dict, Biosample]], List[Union[dict, Biosample]]]])
@@ -148,3 +148,6 @@ slots.sometimes_absent = Slot(uri=AOB.sometimes_absent, name="sometimes_absent",
 
 slots.lat = Slot(uri=AOB.lat, name="lat", curie=AOB.curie('lat'),
                    model_uri=ATTRIBUTES_OF_BIOSAMPLES.lat, domain=None, range=Optional[float])
+
+slots.experimental_slot = Slot(uri=AOB.experimental_slot, name="experimental_slot", curie=AOB.curie('experimental_slot'),
+                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.experimental_slot, domain=None, range=Optional[str])

@@ -20,6 +20,9 @@
             sh:minCount 1 ;
             sh:order 2 ;
             sh:path <http://example.com/intval> ],
+        [ sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path <http://example.com/lat> ],
         [ sh:description "how far down" ;
             sh:maxCount 1 ;
             sh:order 1 ;
@@ -28,9 +31,6 @@
             sh:minCount 1 ;
             sh:order 3 ;
             sh:path <http://example.com/sometimes_absent> ],
-        [ sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path <http://example.com/lat> ],
         [ sh:description "value that points exclusively to one instances of a class" ;
             sh:maxCount 1 ;
             sh:order 0 ;

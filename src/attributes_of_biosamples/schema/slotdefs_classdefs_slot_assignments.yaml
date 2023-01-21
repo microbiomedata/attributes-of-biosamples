@@ -26,6 +26,11 @@ prefixes:
     prefix_reference: https://w3id.org/linkml/
 default_prefix: aob
 default_range: string
+subsets:
+  silly_subset:
+    name: silly_subset
+    description: a subset just for the heck of it
+    from_schema: http://example.com/attributes_of_biosamples
 types:
   DecimalDegree:
     name: DecimalDegree
@@ -56,11 +61,13 @@ slots:
     - value: high
     - value: low
     - value: '2000'
+    in_subset:
+    - silly_subset
     from_schema: http://example.com/attributes_of_biosamples
     see_also:
     - https://en.wikipedia.org/wiki/Three-dimensional_space
     - https://en.wikipedia.org/wiki/Depth_(video_game)
-    mappings:
+    close_mappings:
     - MIXS:0000018
     created_by: ORCID:0000-0001-9076-6066
     slot_uri: aob:depth
@@ -91,12 +98,14 @@ slots:
   intval:
     name: intval
     from_schema: http://example.com/attributes_of_biosamples
+    slot_group: experimental_slot
     range: integer
     required: true
   intlist:
     name: intlist
     from_schema: http://example.com/attributes_of_biosamples
     multivalued: true
+    slot_group: experimental_slot
     range: integer
     recommended: true
     minimum_cardinality: '2'
@@ -105,11 +114,16 @@ slots:
     name: sometimes_absent
     from_schema: http://example.com/attributes_of_biosamples
     ifabsent: string(present)
+    slot_group: experimental_slot
     required: true
   lat:
     name: lat
     from_schema: http://example.com/attributes_of_biosamples
+    slot_group: experimental_slot
     range: DecimalDegree
+  experimental_slot:
+    name: experimental_slot
+    from_schema: http://example.com/attributes_of_biosamples
 classes:
   Biosample:
     name: Biosample

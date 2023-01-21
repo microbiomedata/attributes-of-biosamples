@@ -27,6 +27,15 @@
   ],
   "default_prefix": "attributes_of_biosamples",
   "default_range": "string",
+  "subsets": [
+    {
+      "name": "silly_subset",
+      "definition_uri": "http://example.com/SillySubset",
+      "description": "a subset just for the heck of it",
+      "from_schema": "http://example.com/attributes_of_biosamples",
+      "@type": "SubsetDefinition"
+    }
+  ],
   "types": [
     {
       "name": "string",
@@ -247,13 +256,18 @@
           "@type": "Example"
         }
       ],
+      "in_subset": [
+        "silly_subset"
+      ],
       "from_schema": "http://example.com/attributes_of_biosamples",
       "see_also": [
         "https://en.wikipedia.org/wiki/Three-dimensional_space",
         "https://en.wikipedia.org/wiki/Depth_(video_game)"
       ],
       "mappings": [
-        "http://example.com/depth",
+        "http://example.com/depth"
+      ],
+      "close_mappings": [
         "http://w3id.org/mixs/0000018"
       ],
       "created_by": "ORCID:0000-0001-9076-6066",
@@ -322,6 +336,7 @@
       "domain_of": [
         "Biosample"
       ],
+      "slot_group": "experimental_slot",
       "range": "integer",
       "required": true,
       "@type": "SlotDefinition"
@@ -332,6 +347,7 @@
       "from_schema": "http://example.com/attributes_of_biosamples",
       "slot_uri": "http://example.com/intlist",
       "multivalued": true,
+      "slot_group": "experimental_slot",
       "range": "integer",
       "recommended": true,
       "minimum_cardinality": 2,
@@ -348,6 +364,7 @@
       "domain_of": [
         "Biosample"
       ],
+      "slot_group": "experimental_slot",
       "range": "string",
       "required": true,
       "@type": "SlotDefinition"
@@ -361,7 +378,16 @@
       "domain_of": [
         "Biosample"
       ],
+      "slot_group": "experimental_slot",
       "range": "DecimalDegree",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "experimental_slot",
+      "definition_uri": "http://example.com/experimental_slot",
+      "from_schema": "http://example.com/attributes_of_biosamples",
+      "slot_uri": "http://example.com/experimental_slot",
+      "range": "string",
       "@type": "SlotDefinition"
     }
   ],
@@ -402,7 +428,7 @@
   "source_file": "attributes_of_biosamples.yaml",
   "source_file_date": "2023-01-20T22:50:07",
   "source_file_size": 676,
-  "generation_date": "2023-01-20T23:00:22",
+  "generation_date": "2023-01-20T23:20:33",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/attributes_of_biosamples.context.jsonld",
