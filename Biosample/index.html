@@ -205,6 +205,7 @@
 <div class="mermaid"> classDiagram
     class Biosample
       Biosample : depth
+      Biosample : id
 
 </div>
 <!-- no inheritance hierarchy -->
@@ -219,6 +220,12 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../id/">id</a></td>
+<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
+<td>value that points exclusively to one instances of a class</td>
+<td>direct</td>
+</tr>
 <tr>
 <td><a href="../depth/">depth</a></td>
 <td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
@@ -279,6 +286,7 @@ description: something you can collect from the environment
 from_schema: TEMP
 rank: 1000
 slots:
+- id
 - depth
 
 </code></pre>
@@ -290,6 +298,16 @@ description: something you can collect from the environment
 from_schema: TEMP
 rank: 1000
 attributes:
+  id:
+    name: id
+    description: value that points exclusively to one instances of a class
+    from_schema: TEMP
+    rank: 1000
+    alias: id
+    owner: Biosample
+    domain_of:
+    - Biosample
+    range: string
   depth:
     name: depth
     description: how far down

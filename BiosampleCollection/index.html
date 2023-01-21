@@ -216,7 +216,7 @@
 <tbody>
 <tr>
 <td><a href="../biosamples/">biosamples</a></td>
-<td>0..1 <br/> <a href="../Biosample/">Biosample</a></td>
+<td>0..* <br/> <a href="../Biosample/">Biosample</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -270,11 +270,14 @@ attributes:
     name: biosamples
     from_schema: TEMP
     rank: 1000
+    multivalued: true
     alias: biosamples
     owner: BiosampleCollection
     domain_of:
     - BiosampleCollection
     range: Biosample
+    inlined: true
+    inlined_as_list: true
 
 </code></pre>
 </details>

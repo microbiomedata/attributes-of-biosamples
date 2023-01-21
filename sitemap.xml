@@ -36,6 +36,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://microbiomedata.github.io/attributes-of-biosamples/id/</loc>
+         <lastmod>2023-01-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://microbiomedata.github.io/attributes-of-biosamples/types/</loc>
          <lastmod>2023-01-21</lastmod>
          <changefreq>daily</changefreq>
