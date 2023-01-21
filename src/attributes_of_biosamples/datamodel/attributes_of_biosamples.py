@@ -1,5 +1,5 @@
 # Auto generated from attributes_of_biosamples.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-01-20T19:10:20
+# Generation date: 2023-01-20T19:12:23
 # Schema: attributes-of-biosamples
 #
 # id: https://w3id.org/microbiomedata/attributes-of-biosamples
