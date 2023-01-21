@@ -2,7 +2,7 @@ BASE <https://w3id.org/microbiomedata/attributes-of-biosamples/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX linkml: <https://w3id.org/linkml/>
-PREFIX aob: <http://example.com/>
+PREFIX suggestion_only: <http://example.com/>
 
 
 linkml:String xsd:string
@@ -35,20 +35,21 @@ linkml:Objectidentifier IRI
 
 linkml:Nodeidentifier NONLITERAL
 
-aob:DecimalDegree xsd:decimal
+suggestion_only:DecimalDegree xsd:decimal
 
-aob:Biosample CLOSED {
-    (  $aob:Biosample_tes (  aob:depth @linkml:String ? ;
-          aob:intval @linkml:Integer ;
-          aob:sometimes_absent @linkml:String
+suggestion_only:Biosample CLOSED {
+    (  $suggestion_only:Biosample_tes (  suggestion_only:depth @linkml:String ? ;
+          suggestion_only:intval @linkml:Integer ;
+          suggestion_only:sometimes_absent @linkml:String ;
+          suggestion_only:lat @suggestion_only:DecimalDegree ?
        ) ;
-       rdf:type [ aob:Biosample ]
+       rdf:type [ suggestion_only:Biosample ]
     )
 }
 
-aob:BiosampleCollection CLOSED {
-    (  $aob:BiosampleCollection_tes aob:biosamples @aob:Biosample * ;
-       rdf:type [ aob:BiosampleCollection ] ?
+suggestion_only:BiosampleCollection CLOSED {
+    (  $suggestion_only:BiosampleCollection_tes suggestion_only:biosamples @suggestion_only:Biosample * ;
+       rdf:type [ suggestion_only:BiosampleCollection ] ?
     )
 }
 

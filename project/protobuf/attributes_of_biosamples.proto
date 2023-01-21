@@ -5,6 +5,7 @@ message Biosample
   string depth = 0
   integer intval = 0
   string sometimesAbsent = 0
+  decimalDegree lat = 0
  }
 // a collection of Biosamples
 message BiosampleCollection

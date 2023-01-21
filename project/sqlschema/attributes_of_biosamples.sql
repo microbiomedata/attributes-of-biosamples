@@ -5,6 +5,7 @@ CREATE TABLE "Biosample" (
 	depth TEXT, 
 	intval INTEGER NOT NULL, 
 	sometimes_absent TEXT NOT NULL, 
+	lat FLOAT, 
 	PRIMARY KEY (id)
 );
 

@@ -7,14 +7,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://example.com/DecimalDegree> a owl:Class,
-        linkml:TypeDefinition ;
-    rdfs:label "DecimalDegree" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:decimal ;
-            owl:onProperty linkml:topValue ;
-            owl:qualifiedCardinality 1 ] .
-
 <http://example.com/depth_in_meters> a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "depth_in_meters" ;
@@ -37,7 +29,7 @@ linkml:SubsetDefinition a owl:Class ;
     dcterms:license "MIT" ;
     dcterms:title "attributes-of-biosamples" ;
     rdfs:seeAlso "https://microbiomedata.github.io/attributes-of-biosamples" ;
-    linkml:generation_date "2023-01-20T22:50:46" ;
+    linkml:generation_date "2023-01-20T23:00:25" ;
     linkml:metamodel_version "1.7.0" ;
     linkml:source_file "attributes_of_biosamples.yaml" ;
     linkml:source_file_date "2023-01-20T22:50:07" ;
@@ -70,6 +62,11 @@ linkml:SubsetDefinition a owl:Class ;
     rdfs:label "intval" ;
     rdfs:range linkml:Integer .
 
+<http://example.com/lat> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "lat" ;
+    rdfs:range <http://example.com/DecimalDegree> .
+
 <http://example.com/sometimes_absent> a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "sometimes_absent" ;
@@ -81,6 +78,14 @@ linkml:TypeDefinition a owl:Class ;
 linkml:topValue a owl:DatatypeProperty ;
     rdfs:label "value" .
 
+<http://example.com/DecimalDegree> a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "DecimalDegree" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:decimal ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] .
+
 linkml:ClassDefinition a owl:Class ;
     rdfs:label "class_definition" .
 
@@ -88,20 +93,24 @@ linkml:ClassDefinition a owl:Class ;
         linkml:ClassDefinition ;
     rdfs:label "Biosample" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass linkml:String ;
-            owl:onProperty <http://example.com/id> ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:onClass linkml:String ;
-            owl:onProperty <http://example.com/sometimes_absent> ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty <http://example.com/depth> ],
         [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass <http://example.com/DecimalDegree> ;
+            owl:onProperty <http://example.com/lat> ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty <http://example.com/id> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
             owl:onClass linkml:Integer ;
             owl:onProperty <http://example.com/intval> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:String ;
+            owl:onProperty <http://example.com/sometimes_absent> ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "something you can collect from the environment" .
 

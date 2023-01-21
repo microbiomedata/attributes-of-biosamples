@@ -15,6 +15,9 @@
                 "intval": {
                     "type": "integer"
                 },
+                "lat": {
+                    "type": "number"
+                },
                 "sometimes_absent": {
                     "type": "string"
                 }

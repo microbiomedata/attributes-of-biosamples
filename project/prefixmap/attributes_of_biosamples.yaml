@@ -4,7 +4,7 @@
    "attributes_of_biosamples": "https://w3id.org/microbiomedata/attributes-of-biosamples/",
    "linkml": "https://w3id.org/linkml/",
    "schema": "http://schema.org/",
-   "suggestion_only": "http://example.org/UNKNOWN/suggestion_only/",
+   "suggestion_only": "http://example.com/",
    "Biosample": {
       "@id": "aob:Biosample"
    },

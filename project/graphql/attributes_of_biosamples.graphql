@@ -4,6 +4,7 @@ type Biosample
     depth: String
     intval: Integer!
     sometimesAbsent: String!
+    lat: DecimalDegree
   }
 
 type BiosampleCollection

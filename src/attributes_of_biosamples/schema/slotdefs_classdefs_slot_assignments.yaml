@@ -15,12 +15,15 @@ prefixes:
   MIXS:
     prefix_prefix: MIXS
     prefix_reference: http://w3id.org/mixs/
-  linkml:
-    prefix_prefix: linkml
-    prefix_reference: https://w3id.org/linkml/
   xsd:
     prefix_prefix: xsd
     prefix_reference: http://www.w3.org/2001/XMLSchema#
+  suggestion_only:
+    prefix_prefix: suggestion_only
+    prefix_reference: http://example.com/
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
 default_prefix: aob
 default_range: string
 types:
@@ -103,6 +106,10 @@ slots:
     from_schema: http://example.com/attributes_of_biosamples
     ifabsent: string(present)
     required: true
+  lat:
+    name: lat
+    from_schema: http://example.com/attributes_of_biosamples
+    range: DecimalDegree
 classes:
   Biosample:
     name: Biosample
@@ -115,6 +122,7 @@ classes:
     - depth
     - intval
     - sometimes_absent
+    - lat
   BiosampleCollection:
     name: BiosampleCollection
     description: a collection of Biosamples

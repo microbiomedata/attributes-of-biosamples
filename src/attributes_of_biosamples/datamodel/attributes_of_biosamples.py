@@ -1,5 +1,5 @@
 # Auto generated from attributes_of_biosamples.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-01-20T22:50:49
+# Generation date: 2023-01-20T23:00:28
 # Schema: attributes-of-biosamples
 #
 # id: https://w3id.org/microbiomedata/attributes-of-biosamples
@@ -36,7 +36,7 @@ AOB = CurieNamespace('aob', 'http://example.com/')
 ATTRIBUTES_OF_BIOSAMPLES = CurieNamespace('attributes_of_biosamples', 'https://w3id.org/microbiomedata/attributes-of-biosamples/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')
-SUGGESTION_ONLY = CurieNamespace('suggestion_only', 'http://example.org/UNKNOWN/suggestion_only/')
+SUGGESTION_ONLY = CurieNamespace('suggestion_only', 'http://example.com/')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = ATTRIBUTES_OF_BIOSAMPLES
 
@@ -71,6 +71,7 @@ class Biosample(YAMLRoot):
     intval: int = None
     sometimes_absent: str = "present"
     depth: Optional[str] = None
+    lat: Optional[float] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -90,6 +91,9 @@ class Biosample(YAMLRoot):
 
         if self.depth is not None and not isinstance(self.depth, str):
             self.depth = str(self.depth)
+
+        if self.lat is not None and not isinstance(self.lat, float):
+            self.lat = float(self.lat)
 
         super().__post_init__(**kwargs)
 
@@ -141,3 +145,6 @@ slots.intlist = Slot(uri=AOB.intlist, name="intlist", curie=AOB.curie('intlist')
 
 slots.sometimes_absent = Slot(uri=AOB.sometimes_absent, name="sometimes_absent", curie=AOB.curie('sometimes_absent'),
                    model_uri=ATTRIBUTES_OF_BIOSAMPLES.sometimes_absent, domain=None, range=str)
+
+slots.lat = Slot(uri=AOB.lat, name="lat", curie=AOB.curie('lat'),
+                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.lat, domain=None, range=Optional[float])
