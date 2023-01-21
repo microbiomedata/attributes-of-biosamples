@@ -21,6 +21,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://microbiomedata.github.io/attributes-of-biosamples/TEMP/</loc>
+         <lastmod>2023-01-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://microbiomedata.github.io/attributes-of-biosamples/about/</loc>
+         <lastmod>2023-01-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://microbiomedata.github.io/attributes-of-biosamples/attributes-of-biosamples/</loc>
          <lastmod>2023-01-21</lastmod>
          <changefreq>daily</changefreq>
@@ -56,7 +66,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://microbiomedata.github.io/attributes-of-biosamples/intlist1/</loc>
+         <lastmod>2023-01-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://microbiomedata.github.io/attributes-of-biosamples/intval/</loc>
+         <lastmod>2023-01-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://microbiomedata.github.io/attributes-of-biosamples/lat/</loc>
          <lastmod>2023-01-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
