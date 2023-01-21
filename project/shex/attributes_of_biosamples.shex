@@ -41,4 +41,10 @@ TEMP:Biosample CLOSED {
     )
 }
 
+TEMP:BiosampleCollection CLOSED {
+    (  $TEMP:BiosampleCollection_tes TEMP:biosamples @TEMP:Biosample ? ;
+       rdf:type [ TEMP:BiosampleCollection ] ?
+    )
+}
+
 

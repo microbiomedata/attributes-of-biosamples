@@ -2,6 +2,17 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<https://example.org/TEMP/BiosampleCollection> a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "a collection of Biosamples" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class <https://example.org/TEMP/Biosample> ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 0 ;
+            sh:path <https://example.org/TEMP/biosamples> ] ;
+    sh:targetClass <https://example.org/TEMP/BiosampleCollection> .
+
 <https://example.org/TEMP/Biosample> a sh:NodeShape ;
     sh:closed true ;
     sh:description "something you can collect from the environment" ;

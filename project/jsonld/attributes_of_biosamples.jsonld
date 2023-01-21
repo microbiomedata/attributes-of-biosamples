@@ -212,6 +212,19 @@
   ],
   "slots": [
     {
+      "name": "biosamples",
+      "definition_uri": "https://example.org/TEMP/biosamples",
+      "from_schema": "TEMP",
+      "slot_uri": "https://example.org/TEMP/biosamples",
+      "owner": "BiosampleCollection",
+      "domain_of": [
+        "BiosampleCollection"
+      ],
+      "range": "Biosample",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "depth",
       "definition_uri": "https://example.org/TEMP/depth",
       "description": "how far down",
@@ -237,13 +250,25 @@
       "slot_usage": {},
       "class_uri": "https://example.org/TEMP/Biosample",
       "@type": "ClassDefinition"
+    },
+    {
+      "name": "BiosampleCollection",
+      "definition_uri": "https://example.org/TEMP/BiosampleCollection",
+      "description": "a collection of Biosamples",
+      "from_schema": "TEMP",
+      "slots": [
+        "biosamples"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://example.org/TEMP/BiosampleCollection",
+      "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "attributes_of_biosamples.yaml",
   "source_file_date": "2023-01-20T18:50:17",
   "source_file_size": 671,
-  "generation_date": "2023-01-20T19:00:04",
+  "generation_date": "2023-01-20T19:04:06",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/attributes_of_biosamples.context.jsonld",

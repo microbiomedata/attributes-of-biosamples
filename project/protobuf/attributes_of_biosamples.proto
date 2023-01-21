@@ -3,3 +3,8 @@ message Biosample
  {
   string depth = 0
  }
+// a collection of Biosamples
+message BiosampleCollection
+ {
+  biosample biosamples = 0
+ }

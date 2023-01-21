@@ -11,6 +11,17 @@
             },
             "title": "Biosample",
             "type": "object"
+        },
+        "BiosampleCollection": {
+            "additionalProperties": false,
+            "description": "a collection of Biosamples",
+            "properties": {
+                "biosamples": {
+                    "$ref": "#/$defs/Biosample"
+                }
+            },
+            "title": "BiosampleCollection",
+            "type": "object"
         }
     },
     "$id": "https://w3id.org/microbiomedata/attributes-of-biosamples",

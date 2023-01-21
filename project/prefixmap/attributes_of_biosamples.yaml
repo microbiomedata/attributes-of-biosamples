@@ -8,5 +8,8 @@
    "schema": "http://schema.org/",
    "Biosample": {
       "@id": "TEMP:Biosample"
+   },
+   "BiosampleCollection": {
+      "@id": "TEMP:BiosampleCollection"
    }
 }

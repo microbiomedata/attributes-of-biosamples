@@ -17,24 +17,30 @@ linkml:topValue a owl:DatatypeProperty ;
 
 <https://w3id.org/microbiomedata/attributes-of-biosamples> a owl:Ontology ;
     rdfs:label "attributes-of-biosamples" ;
-    IAO:0000700 <https://example.org/TEMP/Biosample> ;
+    IAO:0000700 <https://example.org/TEMP/Biosample>,
+        <https://example.org/TEMP/BiosampleCollection> ;
     dcterms:license "MIT" ;
     dcterms:title "attributes-of-biosamples" ;
     rdfs:seeAlso "https://microbiomedata.github.io/attributes-of-biosamples" ;
-    linkml:generation_date "2023-01-20T19:00:07" ;
+    linkml:generation_date "2023-01-20T19:04:09" ;
     linkml:metamodel_version "1.7.0" ;
     linkml:source_file "attributes_of_biosamples.yaml" ;
     linkml:source_file_date "2023-01-20T18:50:17" ;
     linkml:source_file_size 671 .
 
-<https://example.org/TEMP/Biosample> a owl:Class,
+<https://example.org/TEMP/BiosampleCollection> a owl:Class,
         linkml:ClassDefinition ;
-    rdfs:label "Biosample" ;
+    rdfs:label "BiosampleCollection" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty <https://example.org/TEMP/depth> ] ;
-    skos:definition "something you can collect from the environment" .
+            owl:onClass <https://example.org/TEMP/Biosample> ;
+            owl:onProperty <https://example.org/TEMP/biosamples> ] ;
+    skos:definition "a collection of Biosamples" .
+
+<https://example.org/TEMP/biosamples> a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "biosamples" ;
+    rdfs:range <https://example.org/TEMP/Biosample> .
 
 <https://example.org/TEMP/depth> a owl:ObjectProperty,
         linkml:SlotDefinition ;
@@ -47,5 +53,14 @@ linkml:ClassDefinition a owl:Class ;
 
 linkml:SlotDefinition a owl:Class ;
     rdfs:label "slot_definition" .
+
+<https://example.org/TEMP/Biosample> a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Biosample" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
+            owl:onProperty <https://example.org/TEMP/depth> ] ;
+    skos:definition "something you can collect from the environment" .
 
 

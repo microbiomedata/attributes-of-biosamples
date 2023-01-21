@@ -4,6 +4,11 @@ classes:
     from_schema: TEMP
     slots:
     - depth
+  BiosampleCollection:
+    description: a collection of Biosamples
+    from_schema: TEMP
+    slots:
+    - biosamples
 default_prefix: TEMP
 default_range: string
 id: TEMP
@@ -14,6 +19,9 @@ prefixes:
   TEMP: https://example.org/TEMP/
   linkml: https://w3id.org/linkml/
 slots:
+  biosamples:
+    from_schema: TEMP
+    range: Biosample
   depth:
     description: how far down
     from_schema: TEMP

@@ -1,5 +1,5 @@
 # Auto generated from attributes_of_biosamples.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-01-20T19:00:09
+# Generation date: 2023-01-20T19:04:12
 # Schema: attributes-of-biosamples
 #
 # id: https://w3id.org/microbiomedata/attributes-of-biosamples
@@ -68,12 +68,36 @@ class Biosample(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass
+class BiosampleCollection(YAMLRoot):
+    """
+    a collection of Biosamples
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = TEMP.BiosampleCollection
+    class_class_curie: ClassVar[str] = "TEMP:BiosampleCollection"
+    class_name: ClassVar[str] = "BiosampleCollection"
+    class_model_uri: ClassVar[URIRef] = ATTRIBUTES_OF_BIOSAMPLES.BiosampleCollection
+
+    biosamples: Optional[Union[dict, Biosample]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.biosamples is not None and not isinstance(self.biosamples, Biosample):
+            self.biosamples = Biosample(**as_dict(self.biosamples))
+
+        super().__post_init__(**kwargs)
+
+
 # Enumerations
 
 
 # Slots
 class slots:
     pass
+
+slots.biosamples = Slot(uri=TEMP.biosamples, name="biosamples", curie=TEMP.curie('biosamples'),
+                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.biosamples, domain=None, range=Optional[Union[dict, Biosample]])
 
 slots.depth = Slot(uri=TEMP.depth, name="depth", curie=TEMP.curie('depth'),
                    model_uri=ATTRIBUTES_OF_BIOSAMPLES.depth, domain=None, range=Optional[str])

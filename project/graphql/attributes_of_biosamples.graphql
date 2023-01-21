@@ -3,3 +3,8 @@ type Biosample
     depth: String
   }
 
+type BiosampleCollection
+  {
+    biosamples: Biosample
+  }
+
