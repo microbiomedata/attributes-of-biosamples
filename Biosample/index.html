@@ -158,6 +158,11 @@
 <nav aria-label="Identifier and Mapping Information" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#valid-id-prefixes">
+    Valid ID Prefixes
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#schema-source">
     Schema Source
   </a>
@@ -201,11 +206,13 @@
 </a>
 <h1 id="class-biosample">Class: Biosample</h1>
 <p><em>something you can collect from the environment</em></p>
-<p>URI: <a href="https://example.org/TEMP/Biosample">TEMP:Biosample</a></p>
+<p>URI: <a href="http://example.com/Biosample">aob:Biosample</a></p>
 <div class="mermaid"> classDiagram
     class Biosample
       Biosample : depth
       Biosample : id
+      Biosample : intval
+      Biosample : sometimes_absent
 
 </div>
 <!-- no inheritance hierarchy -->
@@ -222,7 +229,7 @@
 <tbody>
 <tr>
 <td><a href="../id/">id</a></td>
-<td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
+<td>1..1 <br/> <a href="xsd:string">xsd:string</a></td>
 <td>value that points exclusively to one instances of a class</td>
 <td>direct</td>
 </tr>
@@ -230,6 +237,18 @@
 <td><a href="../depth/">depth</a></td>
 <td>0..1 <br/> <a href="xsd:string">xsd:string</a></td>
 <td>how far down</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../intval/">intval</a></td>
+<td>1..1 <br/> <a href="xsd:integer">xsd:integer</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../sometimes_absent/">sometimes_absent</a></td>
+<td>1..1 <br/> <a href="xsd:string">xsd:string</a></td>
+<td></td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -254,9 +273,14 @@
 </tbody>
 </table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
+<h3 id="valid-id-prefixes">Valid ID Prefixes</h3>
+<p>Instances of this class <em>should</em> have identifiers with one of the following prefixes:</p>
+<ul>
+<li>suggestion_only</li>
+</ul>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: TEMP</li>
+<li>from schema: http://example.com/attributes_of_biosamples</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -269,11 +293,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>TEMP:Biosample</td>
+<td>aob:Biosample</td>
 </tr>
 <tr>
 <td>native</td>
-<td>TEMP:Biosample</td>
+<td>aob:Biosample</td>
 </tr>
 </tbody>
 </table>
@@ -282,27 +306,39 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Biosample
+id_prefixes:
+- suggestion_only
 description: something you can collect from the environment
-from_schema: TEMP
+from_schema: http://example.com/attributes_of_biosamples
 rank: 1000
 slots:
 - id
 - depth
+- intval
+- sometimes_absent
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Biosample
+id_prefixes:
+- suggestion_only
 description: something you can collect from the environment
-from_schema: TEMP
+from_schema: http://example.com/attributes_of_biosamples
 rank: 1000
 attributes:
   id:
     name: id
     description: value that points exclusively to one instances of a class
-    from_schema: TEMP
+    from_schema: http://example.com/attributes_of_biosamples
+    aliases:
+    - denoter
+    - identifier
     rank: 1000
+    is_a: depth
+    modified_by: ORCID:0000-0001-9076-6066
+    identifier: true
     alias: id
     owner: Biosample
     domain_of:
@@ -310,14 +346,59 @@ attributes:
     range: string
   depth:
     name: depth
+    conforms_to: kindergarten stuff
+    annotations:
+      spanish:
+        tag: spanish
+        value: profundidad
     description: how far down
-    from_schema: TEMP
+    todos:
+    - so pick one
+    - then get some sleep
+    notes:
+    - call mom
+    - vote
+    comments:
+    - could be a bare number
+    - could be a string with a number and a unit
+    - could be a tuple
+    examples:
+    - value: high
+    - value: low
+    - value: '2000'
+    from_schema: http://example.com/attributes_of_biosamples
+    see_also:
+    - https://en.wikipedia.org/wiki/Three-dimensional_space
+    - https://en.wikipedia.org/wiki/Depth_(video_game)
     rank: 1000
+    created_by: ORCID:0000-0001-9076-6066
+    slot_uri: aob:depth
     alias: depth
     owner: Biosample
     domain_of:
     - Biosample
     range: string
+  intval:
+    name: intval
+    from_schema: http://example.com/attributes_of_biosamples
+    rank: 1000
+    alias: intval
+    owner: Biosample
+    domain_of:
+    - Biosample
+    range: integer
+    required: true
+  sometimes_absent:
+    name: sometimes_absent
+    from_schema: http://example.com/attributes_of_biosamples
+    rank: 1000
+    ifabsent: string(present)
+    alias: sometimes_absent
+    owner: Biosample
+    domain_of:
+    - Biosample
+    range: string
+    required: true
 
 </code></pre>
 </details>

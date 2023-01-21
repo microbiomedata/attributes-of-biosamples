@@ -256,6 +256,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#inheritance" class="md-nav__link">
+    Inheritance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#applicable-classes" class="md-nav__link">
     Applicable Classes
   </a>
@@ -265,6 +272,13 @@
         <li class="md-nav__item">
   <a href="#properties" class="md-nav__link">
     Properties
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aliases" class="md-nav__link">
+    Aliases
   </a>
   
 </li>
@@ -318,9 +332,14 @@
 
 <h1 id="slot-id">Slot: id</h1>
 <p><em>value that points exclusively to one instances of a class</em></p>
-<p>URI: <a href="https://example.org/TEMP/id">TEMP:id</a></p>
-<!-- no inheritance hierarchy -->
-
+<p>URI: <a href="http://example.com/id">aob:id</a></p>
+<h2 id="inheritance">Inheritance</h2>
+<ul>
+<li><a href="../depth/">depth</a><ul>
+<li><strong>id</strong></li>
+</ul>
+</li>
+</ul>
 <h2 id="applicable-classes">Applicable Classes</h2>
 <table>
 <thead>
@@ -340,18 +359,29 @@
 <ul>
 <li>Range: <a href="xsd:string">xsd:string</a></li>
 </ul>
+<h2 id="aliases">Aliases</h2>
+<ul>
+<li>denoter</li>
+<li>identifier</li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: TEMP</li>
+<li>from schema: http://example.com/attributes_of_biosamples</li>
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: id
 description: value that points exclusively to one instances of a class
-from_schema: TEMP
+from_schema: http://example.com/attributes_of_biosamples
+aliases:
+- denoter
+- identifier
 rank: 1000
+is_a: depth
+modified_by: ORCID:0000-0001-9076-6066
+identifier: true
 alias: id
 domain_of:
 - Biosample

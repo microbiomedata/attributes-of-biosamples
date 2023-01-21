@@ -196,7 +196,7 @@
 </a>
 <h1 id="class-biosamplecollection">Class: BiosampleCollection</h1>
 <p><em>a collection of Biosamples</em></p>
-<p>URI: <a href="https://example.org/TEMP/BiosampleCollection">TEMP:BiosampleCollection</a></p>
+<p>URI: <a href="http://example.com/BiosampleCollection">aob:BiosampleCollection</a></p>
 <div class="mermaid"> classDiagram
     class BiosampleCollection
       BiosampleCollection : biosamples
@@ -225,7 +225,7 @@
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: TEMP</li>
+<li>from schema: http://example.com/attributes_of_biosamples</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -238,11 +238,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>TEMP:BiosampleCollection</td>
+<td>aob:BiosampleCollection</td>
 </tr>
 <tr>
 <td>native</td>
-<td>TEMP:BiosampleCollection</td>
+<td>aob:BiosampleCollection</td>
 </tr>
 </tbody>
 </table>
@@ -252,7 +252,7 @@
 <details>
 <pre><code class="language-yaml">name: BiosampleCollection
 description: a collection of Biosamples
-from_schema: TEMP
+from_schema: http://example.com/attributes_of_biosamples
 rank: 1000
 slots:
 - biosamples
@@ -263,12 +263,12 @@ slots:
 <details>
 <pre><code class="language-yaml">name: BiosampleCollection
 description: a collection of Biosamples
-from_schema: TEMP
+from_schema: http://example.com/attributes_of_biosamples
 rank: 1000
 attributes:
   biosamples:
     name: biosamples
-    from_schema: TEMP
+    from_schema: http://example.com/attributes_of_biosamples
     rank: 1000
     multivalued: true
     alias: biosamples
