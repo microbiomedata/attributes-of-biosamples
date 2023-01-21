@@ -8,13 +8,14 @@ Attributes of Environmental Biosamples
 
 ## Repository Structure
 
-* [examples/](examples/) - example data
 * [project/](project/) - project files (do not edit these)
 * [src/](src/) - source files (edit these)
     * [attributes_of_biosamples](src/attributes_of_biosamples)
         * [schema](src/attributes_of_biosamples/schema) -- LinkML schema (edit this)
 * [datamodel](src/attributes_of_biosamples/datamodel) -- Generated python datamodel
 * [tests](tests/) - python tests
+
+Deleted [examples/](examples/) in favor of [src/data/examples](src/data/examples)
 
 ## Developer Documentation
 
