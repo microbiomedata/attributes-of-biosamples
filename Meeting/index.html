@@ -203,6 +203,8 @@
 <p>URI: <a href="http://example.com/Meeting">aob:Meeting</a></p>
 <div class="mermaid"> classDiagram
     class Meeting
+      Meeting : id
+      Meeting : meeting_info
 
 </div>
 <!-- no inheritance hierarchy -->
@@ -218,10 +220,16 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../id/">id</a></td>
+<td>1..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
+<td>value that points exclusively to one instances of a class</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../meeting_info/">meeting_info</a></td>
+<td>0..1 <br/> <a href="../COMPASSPOINTS/">COMPASSPOINTS</a></td>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>direct</td>
 </tr>
 </tbody>
 </table>
@@ -275,6 +283,9 @@
 <pre><code class="language-yaml">name: Meeting
 from_schema: http://example.com/attributes_of_biosamples
 rank: 1000
+slots:
+- id
+- meeting_info
 
 </code></pre>
 </details>
@@ -283,6 +294,33 @@ rank: 1000
 <pre><code class="language-yaml">name: Meeting
 from_schema: http://example.com/attributes_of_biosamples
 rank: 1000
+attributes:
+  id:
+    name: id
+    description: value that points exclusively to one instances of a class
+    from_schema: http://example.com/attributes_of_biosamples
+    aliases:
+    - denoter
+    - identifier
+    rank: 1000
+    is_a: depth
+    modified_by: ORCID:0000-0001-9076-6066
+    identifier: true
+    alias: id
+    owner: Meeting
+    domain_of:
+    - Biosample
+    - Meeting
+    range: string
+  meeting_info:
+    name: meeting_info
+    from_schema: http://example.com/attributes_of_biosamples
+    rank: 1000
+    alias: meeting_info
+    owner: Meeting
+    domain_of:
+    - Meeting
+    range: COMPASS_POINTS
 
 </code></pre>
 </details>
