@@ -18,8 +18,8 @@
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:order 2 ;
-            sh:path <http://example.com/intval> ],
+            sh:order 3 ;
+            sh:path <http://example.com/sometimes_absent> ],
         [ sh:maxCount 1 ;
             sh:order 4 ;
             sh:path <http://example.com/lat> ],
@@ -29,8 +29,8 @@
             sh:path <http://example.com/depth> ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:order 3 ;
-            sh:path <http://example.com/sometimes_absent> ],
+            sh:order 2 ;
+            sh:path <http://example.com/intval> ],
         [ sh:description "value that points exclusively to one instances of a class" ;
             sh:maxCount 1 ;
             sh:order 0 ;
