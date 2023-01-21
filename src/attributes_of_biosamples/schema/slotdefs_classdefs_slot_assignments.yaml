@@ -1,27 +1,35 @@
+name: TEMP
+id: TEMP
+imports:
+- linkml:types
+prefixes:
+  linkml:
+    prefix_prefix: linkml
+    prefix_reference: https://w3id.org/linkml/
+  TEMP:
+    prefix_prefix: TEMP
+    prefix_reference: https://example.org/TEMP/
+default_prefix: TEMP
+default_range: string
+slots:
+  depth:
+    name: depth
+    description: how far down
+    from_schema: TEMP
+  biosamples:
+    name: biosamples
+    from_schema: TEMP
+    range: Biosample
 classes:
   Biosample:
+    name: Biosample
     description: something you can collect from the environment
     from_schema: TEMP
     slots:
     - depth
   BiosampleCollection:
+    name: BiosampleCollection
     description: a collection of Biosamples
     from_schema: TEMP
     slots:
     - biosamples
-default_prefix: TEMP
-default_range: string
-id: TEMP
-imports:
-- linkml:types
-name: TEMP
-prefixes:
-  TEMP: https://example.org/TEMP/
-  linkml: https://w3id.org/linkml/
-slots:
-  biosamples:
-    from_schema: TEMP
-    range: Biosample
-  depth:
-    description: how far down
-    from_schema: TEMP

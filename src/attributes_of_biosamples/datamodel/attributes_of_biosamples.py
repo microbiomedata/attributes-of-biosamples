@@ -1,5 +1,5 @@
 # Auto generated from attributes_of_biosamples.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-01-20T19:04:12
+# Generation date: 2023-01-20T19:10:20
 # Schema: attributes-of-biosamples
 #
 # id: https://w3id.org/microbiomedata/attributes-of-biosamples
@@ -96,8 +96,8 @@ class BiosampleCollection(YAMLRoot):
 class slots:
     pass
 
-slots.biosamples = Slot(uri=TEMP.biosamples, name="biosamples", curie=TEMP.curie('biosamples'),
-                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.biosamples, domain=None, range=Optional[Union[dict, Biosample]])
-
 slots.depth = Slot(uri=TEMP.depth, name="depth", curie=TEMP.curie('depth'),
                    model_uri=ATTRIBUTES_OF_BIOSAMPLES.depth, domain=None, range=Optional[str])
+
+slots.biosamples = Slot(uri=TEMP.biosamples, name="biosamples", curie=TEMP.curie('biosamples'),
+                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.biosamples, domain=None, range=Optional[Union[dict, Biosample]])

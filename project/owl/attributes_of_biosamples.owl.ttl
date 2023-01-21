@@ -22,7 +22,7 @@ linkml:topValue a owl:DatatypeProperty ;
     dcterms:license "MIT" ;
     dcterms:title "attributes-of-biosamples" ;
     rdfs:seeAlso "https://microbiomedata.github.io/attributes-of-biosamples" ;
-    linkml:generation_date "2023-01-20T19:04:09" ;
+    linkml:generation_date "2023-01-20T19:10:18" ;
     linkml:metamodel_version "1.7.0" ;
     linkml:source_file "attributes_of_biosamples.yaml" ;
     linkml:source_file_date "2023-01-20T18:50:17" ;
