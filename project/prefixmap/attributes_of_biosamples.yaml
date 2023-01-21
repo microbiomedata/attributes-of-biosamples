@@ -1,18 +1,12 @@
 {
    "PATO": "http://purl.obolibrary.org/obo/PATO_",
+   "TEMP": "https://example.org/TEMP/",
+   "attributes_of_biosamples": "https://w3id.org/microbiomedata/attributes-of-biosamples/",
    "biolink": "https://w3id.org/biolink/",
-   "famrel": "http://example.org/famrel/",
+   "example": "https://example.org/",
    "linkml": "https://w3id.org/linkml/",
-   "my_datamodel": "https://w3id.org/my_org/my_datamodel",
-   "prov": "http://www.w3.org/ns/prov#",
    "schema": "http://schema.org/",
-   "Address": {
-      "@id": "schema:PostalAddress"
-   },
-   "Organization": {
-      "@id": "schema:Organization"
-   },
-   "Person": {
-      "@id": "schema:Person"
+   "Biosample": {
+      "@id": "TEMP:Biosample"
    }
 }

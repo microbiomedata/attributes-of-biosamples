@@ -1,0 +1,27 @@
+{
+  "template": "https://github.com/linkml/linkml-project-cookiecutter",
+  "commit": "c917617feee59d5cd10d65666e8fd975a969444d",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "attributes-of-biosamples",
+      "__project_slug": "attributes_of_biosamples",
+      "github_org": "microbiomedata",
+      "__source_path": "src/attributes_of_biosamples/schema/attributes_of_biosamples.yaml",
+      "project_description": "Attributes of Environmental Biosamples",
+      "full_name": "Mark Andrew Miller",
+      "email": "mam@lbl.gov",
+      "__author": "Mark Andrew Miller <mam@lbl.gov>",
+      "license": "MIT",
+      "main_schema_class": "BiosampleCollection",
+      "create_python_classes": "Yes",
+      "use_schemasheets": "Yes",
+      "google_sheet_id": "1sXIRRw6XrDbFOZcM1ZiJPdcuSoRno2N1f_RJBK7ikXo",
+      "google_sheet_tabs": "slotdefs classdefs slot_assignments",
+      "__google_sheet_module": "slotdefs_classdefs_slot_assignments",
+      "github_token_for_pypi_deployment": "PYPI_PASSWORD",
+      "_template": "https://github.com/linkml/linkml-project-cookiecutter"
+    }
+  },
+  "directory": null
+}
