@@ -10,10 +10,10 @@ see_also:
 prefixes:
   attributes_of_biosamples: https://w3id.org/microbiomedata/attributes-of-biosamples/
   linkml: https://w3id.org/linkml/
-  biolink: https://w3id.org/biolink/
+  #  biolink: https://w3id.org/biolink/
   schema: http://schema.org/
-  PATO: http://purl.obolibrary.org/obo/PATO_
-  example: https://example.org/
+#  PATO: http://purl.obolibrary.org/obo/PATO_
+#  example: https://example.org/
 default_prefix: attributes_of_biosamples
 default_range: string
 

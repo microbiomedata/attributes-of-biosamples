@@ -21,20 +21,8 @@
       "prefix_reference": "https://w3id.org/linkml/"
     },
     {
-      "prefix_prefix": "biolink",
-      "prefix_reference": "https://w3id.org/biolink/"
-    },
-    {
       "prefix_prefix": "schema",
       "prefix_reference": "http://schema.org/"
-    },
-    {
-      "prefix_prefix": "PATO",
-      "prefix_reference": "http://purl.obolibrary.org/obo/PATO_"
-    },
-    {
-      "prefix_prefix": "example",
-      "prefix_reference": "https://example.org/"
     }
   ],
   "default_prefix": "attributes_of_biosamples",
@@ -399,9 +387,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "attributes_of_biosamples.yaml",
-  "source_file_date": "2023-01-20T18:50:17",
-  "source_file_size": 671,
-  "generation_date": "2023-01-20T22:47:38",
+  "source_file_date": "2023-01-20T22:50:07",
+  "source_file_size": 676,
+  "generation_date": "2023-01-20T22:50:42",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/attributes_of_biosamples.context.jsonld",

@@ -1,5 +1,5 @@
 # Auto generated from attributes_of_biosamples.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-01-20T22:47:43
+# Generation date: 2023-01-20T22:50:49
 # Schema: attributes-of-biosamples
 #
 # id: https://w3id.org/microbiomedata/attributes-of-biosamples
@@ -32,11 +32,8 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 MIXS = CurieNamespace('MIXS', 'http://w3id.org/mixs/')
-PATO = CurieNamespace('PATO', 'http://purl.obolibrary.org/obo/PATO_')
 AOB = CurieNamespace('aob', 'http://example.com/')
 ATTRIBUTES_OF_BIOSAMPLES = CurieNamespace('attributes_of_biosamples', 'https://w3id.org/microbiomedata/attributes-of-biosamples/')
-BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/')
-EXAMPLE = CurieNamespace('example', 'https://example.org/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')
 SUGGESTION_ONLY = CurieNamespace('suggestion_only', 'http://example.org/UNKNOWN/suggestion_only/')
