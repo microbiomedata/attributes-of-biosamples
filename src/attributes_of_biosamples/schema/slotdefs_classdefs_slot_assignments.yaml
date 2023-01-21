@@ -38,6 +38,31 @@ types:
     from_schema: http://example.com/attributes_of_biosamples
     base: float
     uri: xsd:decimal
+enums:
+  COMPASS_POINTS:
+    name: COMPASS_POINTS
+    from_schema: http://example.com/attributes_of_biosamples
+    permissible_values:
+      east:
+        text: east
+      north:
+        text: north
+      south:
+        text: south
+      west:
+        text: west
+  TIMES_OF_DAY:
+    name: TIMES_OF_DAY
+    from_schema: http://example.com/attributes_of_biosamples
+    permissible_values:
+      afternoon:
+        text: afternoon
+      evening:
+        text: evening
+      morning:
+        text: morning
+      night:
+        text: night
 slots:
   depth:
     name: depth
@@ -124,6 +149,14 @@ slots:
   experimental_slot:
     name: experimental_slot
     from_schema: http://example.com/attributes_of_biosamples
+  meeting_info:
+    name: meeting_info
+    from_schema: http://example.com/attributes_of_biosamples
+    range: COMPASS_POINTS
+  meetings:
+    name: meetings
+    from_schema: http://example.com/attributes_of_biosamples
+    range: Meeting
 classes:
   Biosample:
     name: Biosample
@@ -137,9 +170,16 @@ classes:
     - intval
     - sometimes_absent
     - lat
-  BiosampleCollection:
-    name: BiosampleCollection
-    description: a collection of Biosamples
+  Collection:
+    name: Collection
+    description: a collection of collections
     from_schema: http://example.com/attributes_of_biosamples
     slots:
     - biosamples
+    - meetings
+  Meeting:
+    name: Meeting
+    from_schema: http://example.com/attributes_of_biosamples
+    slots:
+    - id
+    - meeting_info

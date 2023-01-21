@@ -7,8 +7,14 @@ message Biosample
   string sometimesAbsent = 0
   decimalDegree lat = 0
  }
-// a collection of Biosamples
-message BiosampleCollection
+// a collection of collections
+message Collection
  {
  repeated  biosample biosamples = 0
+  meeting meetings = 0
+ }
+message Meeting
+ {
+  string id = 0
+  cOMPASSPOINTS meetingInfo = 0
  }

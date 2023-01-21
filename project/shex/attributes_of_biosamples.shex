@@ -47,9 +47,17 @@ suggestion_only:Biosample CLOSED {
     )
 }
 
-suggestion_only:BiosampleCollection CLOSED {
-    (  $suggestion_only:BiosampleCollection_tes suggestion_only:biosamples @suggestion_only:Biosample * ;
-       rdf:type [ suggestion_only:BiosampleCollection ] ?
+suggestion_only:Collection CLOSED {
+    (  $suggestion_only:Collection_tes (  suggestion_only:biosamples @suggestion_only:Biosample * ;
+          suggestion_only:meetings @suggestion_only:Meeting ?
+       ) ;
+       rdf:type [ suggestion_only:Collection ] ?
+    )
+}
+
+suggestion_only:Meeting CLOSED {
+    (  $suggestion_only:Meeting_tes suggestion_only:meeting_info @suggestion_only:COMPASSPOINTS ? ;
+       rdf:type [ suggestion_only:Meeting ]
     )
 }
 

@@ -5,7 +5,7 @@ import unittest
 
 from linkml_runtime.dumpers import yaml_dumper
 from linkml_runtime.loaders import yaml_loader
-from attributes_of_biosamples.datamodel import BiosampleCollection
+from attributes_of_biosamples.datamodel import Collection
 
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 DATA_DIR = os.path.join(ROOT, "src", "data", "examples")
@@ -17,8 +17,8 @@ class TestData(unittest.TestCase):
     """Test data and datamodel."""
 
     def test_data(self):
-        """Date test."""
         for path in EXAMPLE_FILES:
-            obj = yaml_loader.load(path, target_class=BiosampleCollection)
+            print(path)
+            obj = yaml_loader.load(path, target_class=Collection)
             print(yaml_dumper.dumps(obj))
             assert obj

@@ -30,19 +30,62 @@
             "title": "Biosample",
             "type": "object"
         },
-        "BiosampleCollection": {
+        "COMPASSPOINTS": {
+            "description": "",
+            "enum": [
+                "east",
+                "north",
+                "south",
+                "west"
+            ],
+            "title": "COMPASSPOINTS",
+            "type": "string"
+        },
+        "Collection": {
             "additionalProperties": false,
-            "description": "a collection of Biosamples",
+            "description": "a collection of collections",
             "properties": {
                 "biosamples": {
                     "items": {
                         "$ref": "#/$defs/Biosample"
                     },
                     "type": "array"
+                },
+                "meetings": {
+                    "type": "string"
                 }
             },
-            "title": "BiosampleCollection",
+            "title": "Collection",
             "type": "object"
+        },
+        "Meeting": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "id": {
+                    "description": "value that points exclusively to one instances of a class",
+                    "type": "string"
+                },
+                "meeting_info": {
+                    "$ref": "#/$defs/COMPASSPOINTS"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Meeting",
+            "type": "object"
+        },
+        "TIMESOFDAY": {
+            "description": "",
+            "enum": [
+                "afternoon",
+                "evening",
+                "morning",
+                "night"
+            ],
+            "title": "TIMESOFDAY",
+            "type": "string"
         }
     },
     "$id": "https://w3id.org/microbiomedata/attributes-of-biosamples",

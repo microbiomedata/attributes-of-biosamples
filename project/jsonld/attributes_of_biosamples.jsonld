@@ -216,6 +216,46 @@
       "@type": "TypeDefinition"
     }
   ],
+  "enums": [
+    {
+      "name": "COMPASS_POINTS",
+      "definition_uri": "http://example.com/COMPASSPOINTS",
+      "from_schema": "http://example.com/attributes_of_biosamples",
+      "permissible_values": [
+        {
+          "text": "east"
+        },
+        {
+          "text": "north"
+        },
+        {
+          "text": "south"
+        },
+        {
+          "text": "west"
+        }
+      ]
+    },
+    {
+      "name": "TIMES_OF_DAY",
+      "definition_uri": "http://example.com/TIMESOFDAY",
+      "from_schema": "http://example.com/attributes_of_biosamples",
+      "permissible_values": [
+        {
+          "text": "afternoon"
+        },
+        {
+          "text": "evening"
+        },
+        {
+          "text": "morning"
+        },
+        {
+          "text": "night"
+        }
+      ]
+    }
+  ],
   "slots": [
     {
       "name": "depth",
@@ -285,9 +325,9 @@
       "from_schema": "http://example.com/attributes_of_biosamples",
       "slot_uri": "http://example.com/biosamples",
       "multivalued": true,
-      "owner": "BiosampleCollection",
+      "owner": "Collection",
       "domain_of": [
-        "BiosampleCollection"
+        "Collection"
       ],
       "range": "Biosample",
       "inlined": true,
@@ -307,9 +347,10 @@
       "modified_by": "ORCID:0000-0001-9076-6066",
       "slot_uri": "http://example.com/id",
       "identifier": true,
-      "owner": "Biosample",
+      "owner": "Meeting",
       "domain_of": [
-        "Biosample"
+        "Biosample",
+        "Meeting"
       ],
       "range": "string",
       "required": true,
@@ -389,6 +430,30 @@
       "slot_uri": "http://example.com/experimental_slot",
       "range": "string",
       "@type": "SlotDefinition"
+    },
+    {
+      "name": "meeting_info",
+      "definition_uri": "http://example.com/meeting_info",
+      "from_schema": "http://example.com/attributes_of_biosamples",
+      "slot_uri": "http://example.com/meeting_info",
+      "owner": "Meeting",
+      "domain_of": [
+        "Meeting"
+      ],
+      "range": "COMPASS_POINTS",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "meetings",
+      "definition_uri": "http://example.com/meetings",
+      "from_schema": "http://example.com/attributes_of_biosamples",
+      "slot_uri": "http://example.com/meetings",
+      "owner": "Collection",
+      "domain_of": [
+        "Collection"
+      ],
+      "range": "Meeting",
+      "@type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -412,15 +477,28 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "BiosampleCollection",
-      "definition_uri": "http://example.com/BiosampleCollection",
-      "description": "a collection of Biosamples",
+      "name": "Collection",
+      "definition_uri": "http://example.com/Collection",
+      "description": "a collection of collections",
       "from_schema": "http://example.com/attributes_of_biosamples",
       "slots": [
-        "biosamples"
+        "biosamples",
+        "meetings"
       ],
       "slot_usage": {},
-      "class_uri": "http://example.com/BiosampleCollection",
+      "class_uri": "http://example.com/Collection",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Meeting",
+      "definition_uri": "http://example.com/Meeting",
+      "from_schema": "http://example.com/attributes_of_biosamples",
+      "slots": [
+        "id",
+        "meeting_info"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://example.com/Meeting",
       "@type": "ClassDefinition"
     }
   ],
@@ -428,7 +506,7 @@
   "source_file": "attributes_of_biosamples.yaml",
   "source_file_date": "2023-01-20T22:50:07",
   "source_file_size": 676,
-  "generation_date": "2023-01-20T23:23:16",
+  "generation_date": "2023-01-20T23:41:51",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/attributes_of_biosamples.context.jsonld",

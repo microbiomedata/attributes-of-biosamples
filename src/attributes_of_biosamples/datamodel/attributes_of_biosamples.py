@@ -1,5 +1,5 @@
 # Auto generated from attributes_of_biosamples.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-01-20T23:23:21
+# Generation date: 2023-01-20T23:41:57
 # Schema: attributes-of-biosamples
 #
 # id: https://w3id.org/microbiomedata/attributes-of-biosamples
@@ -55,6 +55,10 @@ class BiosampleId(extended_str):
     pass
 
 
+class MeetingId(extended_str):
+    pass
+
+
 @dataclass
 class Biosample(YAMLRoot):
     """
@@ -99,27 +103,75 @@ class Biosample(YAMLRoot):
 
 
 @dataclass
-class BiosampleCollection(YAMLRoot):
+class Collection(YAMLRoot):
     """
-    a collection of Biosamples
+    a collection of collections
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AOB.BiosampleCollection
-    class_class_curie: ClassVar[str] = "aob:BiosampleCollection"
-    class_name: ClassVar[str] = "BiosampleCollection"
-    class_model_uri: ClassVar[URIRef] = ATTRIBUTES_OF_BIOSAMPLES.BiosampleCollection
+    class_class_uri: ClassVar[URIRef] = AOB.Collection
+    class_class_curie: ClassVar[str] = "aob:Collection"
+    class_name: ClassVar[str] = "Collection"
+    class_model_uri: ClassVar[URIRef] = ATTRIBUTES_OF_BIOSAMPLES.Collection
 
     biosamples: Optional[Union[Dict[Union[str, BiosampleId], Union[dict, Biosample]], List[Union[dict, Biosample]]]] = empty_dict()
+    meetings: Optional[Union[str, MeetingId]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         self._normalize_inlined_as_list(slot_name="biosamples", slot_type=Biosample, key_name="id", keyed=True)
+
+        if self.meetings is not None and not isinstance(self.meetings, MeetingId):
+            self.meetings = MeetingId(self.meetings)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Meeting(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = AOB.Meeting
+    class_class_curie: ClassVar[str] = "aob:Meeting"
+    class_name: ClassVar[str] = "Meeting"
+    class_model_uri: ClassVar[URIRef] = ATTRIBUTES_OF_BIOSAMPLES.Meeting
+
+    id: Union[str, MeetingId] = None
+    meeting_info: Optional[Union[str, "COMPASSPOINTS"]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, MeetingId):
+            self.id = MeetingId(self.id)
+
+        if self.meeting_info is not None and not isinstance(self.meeting_info, COMPASSPOINTS):
+            self.meeting_info = COMPASSPOINTS(self.meeting_info)
 
         super().__post_init__(**kwargs)
 
 
 # Enumerations
+class COMPASSPOINTS(EnumDefinitionImpl):
 
+    east = PermissibleValue(text="east")
+    north = PermissibleValue(text="north")
+    south = PermissibleValue(text="south")
+    west = PermissibleValue(text="west")
+
+    _defn = EnumDefinition(
+        name="COMPASSPOINTS",
+    )
+
+class TIMESOFDAY(EnumDefinitionImpl):
+
+    afternoon = PermissibleValue(text="afternoon")
+    evening = PermissibleValue(text="evening")
+    morning = PermissibleValue(text="morning")
+    night = PermissibleValue(text="night")
+
+    _defn = EnumDefinition(
+        name="TIMESOFDAY",
+    )
 
 # Slots
 class slots:
@@ -151,3 +203,9 @@ slots.lat = Slot(uri=AOB.lat, name="lat", curie=AOB.curie('lat'),
 
 slots.experimental_slot = Slot(uri=AOB.experimental_slot, name="experimental_slot", curie=AOB.curie('experimental_slot'),
                    model_uri=ATTRIBUTES_OF_BIOSAMPLES.experimental_slot, domain=None, range=Optional[str])
+
+slots.meeting_info = Slot(uri=AOB.meeting_info, name="meeting_info", curie=AOB.curie('meeting_info'),
+                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.meeting_info, domain=None, range=Optional[Union[str, "COMPASSPOINTS"]])
+
+slots.meetings = Slot(uri=AOB.meetings, name="meetings", curie=AOB.curie('meetings'),
+                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.meetings, domain=None, range=Optional[Union[str, MeetingId]])

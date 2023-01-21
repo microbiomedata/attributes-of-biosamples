@@ -8,7 +8,10 @@
    "Biosample": {
       "@id": "aob:Biosample"
    },
-   "BiosampleCollection": {
-      "@id": "aob:BiosampleCollection"
+   "Collection": {
+      "@id": "aob:Collection"
+   },
+   "Meeting": {
+      "@id": "aob:Meeting"
    }
 }
