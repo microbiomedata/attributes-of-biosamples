@@ -16,6 +16,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://microbiomedata.github.io/attributes-of-biosamples/DecimalDegree/</loc>
+         <lastmod>2023-01-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://microbiomedata.github.io/attributes-of-biosamples/attributes-of-biosamples/</loc>
          <lastmod>2023-01-21</lastmod>
          <changefreq>daily</changefreq>
