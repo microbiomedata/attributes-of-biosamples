@@ -1,4 +1,5 @@
 {
+   "MIXS": "http://w3id.org/mixs/",
    "PATO": "http://purl.obolibrary.org/obo/PATO_",
    "aob": "http://example.com/",
    "attributes_of_biosamples": "https://w3id.org/microbiomedata/attributes-of-biosamples/",

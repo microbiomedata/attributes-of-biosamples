@@ -208,6 +208,15 @@
       "uri": "http://www.w3.org/ns/shex#nonLiteral",
       "repr": "str",
       "@type": "TypeDefinition"
+    },
+    {
+      "name": "DecimalDegree",
+      "definition_uri": "http://example.com/DecimalDegree",
+      "description": "A decimal degree expresses latitude or longitude as decimal fractions",
+      "from_schema": "http://example.com/attributes_of_biosamples",
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#decimal",
+      "@type": "TypeDefinition"
     }
   ],
   "slots": [
@@ -256,7 +265,8 @@
         "https://en.wikipedia.org/wiki/Depth_(video_game)"
       ],
       "mappings": [
-        "http://example.com/depth"
+        "http://example.com/depth",
+        "http://w3id.org/mixs/0000018"
       ],
       "created_by": "ORCID:0000-0001-9076-6066",
       "slot_uri": "http://example.com/depth",
@@ -391,7 +401,7 @@
   "source_file": "attributes_of_biosamples.yaml",
   "source_file_date": "2023-01-20T18:50:17",
   "source_file_size": 671,
-  "generation_date": "2023-01-20T22:16:32",
+  "generation_date": "2023-01-20T22:47:38",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/attributes_of_biosamples.context.jsonld",

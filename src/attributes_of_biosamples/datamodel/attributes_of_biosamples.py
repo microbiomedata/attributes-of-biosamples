@@ -1,5 +1,5 @@
 # Auto generated from attributes_of_biosamples.yaml by pythongen.py version: 0.9.0
-# Generation date: 2023-01-20T22:16:40
+# Generation date: 2023-01-20T22:47:43
 # Schema: attributes-of-biosamples
 #
 # id: https://w3id.org/microbiomedata/attributes-of-biosamples
@@ -31,6 +31,7 @@ version = None
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
+MIXS = CurieNamespace('MIXS', 'http://w3id.org/mixs/')
 PATO = CurieNamespace('PATO', 'http://purl.obolibrary.org/obo/PATO_')
 AOB = CurieNamespace('aob', 'http://example.com/')
 ATTRIBUTES_OF_BIOSAMPLES = CurieNamespace('attributes_of_biosamples', 'https://w3id.org/microbiomedata/attributes-of-biosamples/')
@@ -39,10 +40,18 @@ EXAMPLE = CurieNamespace('example', 'https://example.org/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')
 SUGGESTION_ONLY = CurieNamespace('suggestion_only', 'http://example.org/UNKNOWN/suggestion_only/')
+XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = ATTRIBUTES_OF_BIOSAMPLES
 
 
 # Types
+class DecimalDegree(float):
+    """ A decimal degree expresses latitude or longitude as decimal fractions """
+    type_class_uri = XSD.decimal
+    type_class_curie = "xsd:decimal"
+    type_name = "DecimalDegree"
+    type_model_uri = ATTRIBUTES_OF_BIOSAMPLES.DecimalDegree
+
 
 # Class references
 class BiosampleId(extended_str):
@@ -116,7 +125,7 @@ class slots:
     pass
 
 slots.depth = Slot(uri=AOB.depth, name="depth", curie=AOB.curie('depth'),
-                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.depth, domain=None, range=Optional[str])
+                   model_uri=ATTRIBUTES_OF_BIOSAMPLES.depth, domain=None, range=Optional[str], mappings = [MIXS["0000018"]])
 
 slots.biosamples = Slot(uri=AOB.biosamples, name="biosamples", curie=AOB.curie('biosamples'),
                    model_uri=ATTRIBUTES_OF_BIOSAMPLES.biosamples, domain=None, range=Optional[Union[Dict[Union[str, BiosampleId], Union[dict, Biosample]], List[Union[dict, Biosample]]]])

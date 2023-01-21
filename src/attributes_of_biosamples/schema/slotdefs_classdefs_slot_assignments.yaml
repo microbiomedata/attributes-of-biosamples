@@ -12,11 +12,24 @@ prefixes:
   aob:
     prefix_prefix: aob
     prefix_reference: http://example.com/
+  MIXS:
+    prefix_prefix: MIXS
+    prefix_reference: http://w3id.org/mixs/
   linkml:
     prefix_prefix: linkml
     prefix_reference: https://w3id.org/linkml/
+  xsd:
+    prefix_prefix: xsd
+    prefix_reference: http://www.w3.org/2001/XMLSchema#
 default_prefix: aob
 default_range: string
+types:
+  DecimalDegree:
+    name: DecimalDegree
+    description: A decimal degree expresses latitude or longitude as decimal fractions
+    from_schema: http://example.com/attributes_of_biosamples
+    base: float
+    uri: xsd:decimal
 slots:
   depth:
     name: depth
@@ -44,6 +57,8 @@ slots:
     see_also:
     - https://en.wikipedia.org/wiki/Three-dimensional_space
     - https://en.wikipedia.org/wiki/Depth_(video_game)
+    mappings:
+    - MIXS:0000018
     created_by: ORCID:0000-0001-9076-6066
     slot_uri: aob:depth
   biosamples:

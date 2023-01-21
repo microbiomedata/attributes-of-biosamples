@@ -7,6 +7,14 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<http://example.com/DecimalDegree> a owl:Class,
+        linkml:TypeDefinition ;
+    rdfs:label "DecimalDegree" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:decimal ;
+            owl:onProperty linkml:topValue ;
+            owl:qualifiedCardinality 1 ] .
+
 <http://example.com/depth_in_meters> a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "depth_in_meters" ;
@@ -22,12 +30,6 @@
 linkml:SubsetDefinition a owl:Class ;
     rdfs:label "subset_definition" .
 
-linkml:TypeDefinition a owl:Class ;
-    rdfs:label "type_definition" .
-
-linkml:topValue a owl:DatatypeProperty ;
-    rdfs:label "value" .
-
 <https://w3id.org/microbiomedata/attributes-of-biosamples> a owl:Ontology ;
     rdfs:label "attributes-of-biosamples" ;
     IAO:0000700 <http://example.com/Biosample>,
@@ -35,7 +37,7 @@ linkml:topValue a owl:DatatypeProperty ;
     dcterms:license "MIT" ;
     dcterms:title "attributes-of-biosamples" ;
     rdfs:seeAlso "https://microbiomedata.github.io/attributes-of-biosamples" ;
-    linkml:generation_date "2023-01-20T22:16:37" ;
+    linkml:generation_date "2023-01-20T22:47:41" ;
     linkml:metamodel_version "1.7.0" ;
     linkml:source_file "attributes_of_biosamples.yaml" ;
     linkml:source_file_date "2023-01-20T18:50:17" ;
@@ -73,6 +75,12 @@ linkml:topValue a owl:DatatypeProperty ;
     rdfs:label "sometimes_absent" ;
     rdfs:range linkml:String .
 
+linkml:TypeDefinition a owl:Class ;
+    rdfs:label "type_definition" .
+
+linkml:topValue a owl:DatatypeProperty ;
+    rdfs:label "value" .
+
 linkml:ClassDefinition a owl:Class ;
     rdfs:label "class_definition" .
 
@@ -84,16 +92,16 @@ linkml:ClassDefinition a owl:Class ;
             owl:onProperty <http://example.com/sometimes_absent> ;
             owl:qualifiedCardinality 1 ],
         [ a owl:Restriction ;
-            owl:onClass linkml:Integer ;
-            owl:onProperty <http://example.com/intval> ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty <http://example.com/depth> ],
         [ a owl:Restriction ;
             owl:onClass linkml:String ;
             owl:onProperty <http://example.com/id> ;
+            owl:qualifiedCardinality 1 ],
+        [ a owl:Restriction ;
+            owl:onClass linkml:Integer ;
+            owl:onProperty <http://example.com/intval> ;
             owl:qualifiedCardinality 1 ] ;
     skos:definition "something you can collect from the environment" .
 
@@ -107,7 +115,8 @@ linkml:ClassDefinition a owl:Class ;
     skos:definition "how far down" ;
     skos:editorialNote "call mom",
         "vote" ;
-    skos:exactMatch <http://example.com/depth> ;
+    skos:exactMatch <http://example.com/depth>,
+        <http://w3id.org/mixs/0000018> ;
     skos:note "could be a bare number",
         "could be a string with a number and a unit",
         "could be a tuple" ;

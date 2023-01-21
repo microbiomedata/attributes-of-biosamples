@@ -16,21 +16,21 @@
     sh:closed true ;
     sh:description "something you can collect from the environment" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 2 ;
-            sh:path <http://example.com/intval> ],
-        [ sh:description "how far down" ;
+    sh:property [ sh:description "how far down" ;
             sh:maxCount 1 ;
             sh:order 1 ;
             sh:path <http://example.com/depth> ],
+        [ sh:description "value that points exclusively to one instances of a class" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path <http://example.com/id> ],
         [ sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 3 ;
             sh:path <http://example.com/sometimes_absent> ],
-        [ sh:description "value that points exclusively to one instances of a class" ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path <http://example.com/id> ] ;
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path <http://example.com/intval> ] ;
     sh:targetClass <http://example.com/Biosample> .
 

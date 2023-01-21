@@ -35,6 +35,8 @@ linkml:Objectidentifier IRI
 
 linkml:Nodeidentifier NONLITERAL
 
+aob:DecimalDegree xsd:decimal
+
 aob:Biosample CLOSED {
     (  $aob:Biosample_tes (  aob:depth @linkml:String ? ;
           aob:intval @linkml:Integer ;

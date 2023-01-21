@@ -18,10 +18,10 @@ class SlotDefTestCase(unittest.TestCase):
     #     metaclass_names.sort()
     #     self.assertIn("slot_definition", metaclass_names)
     #
-    # def test_report_slotdef_slots(self):
-    #     meta_view = SchemaView(meta_url)
-    #     slotdef = meta_view.induced_class("slot_definition")
-    #     slotdef_slots = slotdef.attributes
-    #     slotsdef_slot_names = [i for i in slotdef_slots.keys()]
-    #     slotsdef_slot_names.sort()
-    #     print(slotsdef_slot_names)
+    def test_report_slotdef_slots(self):
+        meta_view = SchemaView(meta_url)
+        slotdef = meta_view.induced_class("type_definition")
+        slotdef_slots = slotdef.attributes
+        slotsdef_slot_names = [i for i in slotdef_slots.keys()]
+        slotsdef_slot_names.sort()
+        print(slotsdef_slot_names)
